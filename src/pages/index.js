@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import Layout from '../components/dfa-theme/layout'
 import UsubForm from '../components/form'
-import UnsubForm from '../components/form';
+import RegisterForm from '../components/form';
 import SourceEmitter from '../lib/emitter';
 
 
@@ -58,8 +58,13 @@ class IndexPage extends Component {
       <Layout meta={metaTags}>
         <Row>
           <Col xs={12}>
+            <p>Register here for an Endo-sponsored program at the [AAHS Virtual Annual Meeting]!</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
             { formCompleted && <h4 style={{fontWeight: 'normal'}}><strong>Thank You.</strong> <br/>You have been unsubscribed from future communications.</h4>}
-            { !formCompleted && <UnsubForm email={email} hcp={false} formSpecific='nutrition direct patient' /> }
+            { !formCompleted && <RegisterForm email={email} hcp={false} formSpecific='nutrition direct patient' /> }
           </Col>
         </Row>
       </Layout>
