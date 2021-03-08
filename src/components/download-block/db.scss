@@ -1,0 +1,35 @@
+@import '../../scss/configs';
+
+.db-container{
+    border: 1px solid $brand-yellow;
+    padding: 20px;
+    margin-bottom: 0px;
+    background-color: #fcf2ce;
+    display: inline-block;
+    margin-right: 0px;
+    min-height: 220px;
+    .pink-button{
+        // @include font-size(15);
+        // margin-top: 10px;
+        @include font-size(14);
+        margin-top: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .single-db {
+      padding-bottom: 105px;
+    }
+    span.copy-matter{
+        font-weight: 600;
+        line-height: 1.2em !important;
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        @include font-size(14);
+        color: #464647;
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .db-container {
+        width:340px !important;
+    }
+}

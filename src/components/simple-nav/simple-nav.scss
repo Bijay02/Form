@@ -1,0 +1,37 @@
+@import '../../scss/configs';
+
+ul.main-nav{
+    list-style: none;
+    margin-bottom: 0;
+    @media only screen and (min-width : $md-min) {
+        display: flex;
+    }
+    li{
+        margin-bottom: 0;
+        @media only screen and (min-width : $md-min) {
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+        a{
+            font-family: Arial, Helvetica, sans-serif;
+            display: block;
+            @include font-size(10);
+            color: $brand-orange;
+            text-decoration: underline;
+            @media only screen and (min-width : $md-min) {
+                text-align: center;
+            }
+            // padding: 20px 15px;
+            &.active{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.desktop-nav{
+    display: none;
+    @media only screen and (min-width : $md-min) {
+        display: block;
+    }
+}

@@ -1,0 +1,15 @@
+@import '../../scss/configs';
+
+.off-canvas {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    @media only screen and (min-width: $md-min) {
+      display: none;
+    }
+    position: relative;
+
+    .mobile-menu {
+      padding-top: 65px;
+    }
+  }

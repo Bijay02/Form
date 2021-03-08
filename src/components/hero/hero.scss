@@ -1,0 +1,23 @@
+@import '../../scss/configs';
+
+
+.carousel .slide {
+  background: white !important;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .carousel {
+      width: 700px !important;
+  }
+}
+
+.carousel .control-dots .dot {
+  background: $brand-green !important;
+  opacity: 1 !important;
+  box-shadow: none !important;
+}
+
+
+.carousel .control-dots .dot.selected,.carousel .control-dots .dot:hover {
+  background: $brand-lt-purple !important;
+}
