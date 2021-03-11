@@ -23,16 +23,10 @@ class RegisterForm extends Component {
       city: "",
       state: "",
       prevCurrentFellowship: "",
-      nameOfPreviousOrCurrent: false,
-      FormError: false,
-      email_Error: false,
       fellowshipProgram: null,
       session1: false,
       session2: false,
-      // formSubmission: false,
     };
-    this.handleXiaflexUnsub = this.handleXiaflexUnsub.bind(this);
-    this.handleEndoUnsub = this.handleEndoUnsub.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
   }
@@ -69,18 +63,6 @@ class RegisterForm extends Component {
     }
   };
 
-  handleXiaflexUnsub = (val) => {
-    this.setState({
-      xiaflexUnsub: !this.state.xiaflexUnsub,
-    });
-  };
-
-  handleEndoUnsub = (val) => {
-    this.setState({
-      endoUnsub: !this.state.endoUnsub,
-    });
-  };
-
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.email !== prevState.email && !prevState.email) {
       return {
@@ -91,24 +73,9 @@ class RegisterForm extends Component {
     }
   }
 
-  /** set primary or danger class for the form elements */
-  // checkValidation = (fieldName) => {
-  //   return !this.state.formSubmission
-  //     ? "primary"
-  //     : this.state[fieldName]
-  //     ? "primary"
-  //     : "danger";
-  // };
-
   handleSubmit = () => {
     SourceEmitter.emit(`FormSubmitted`, true);
-    // if (!validForm) {
-    //   this.setState({ FormError: true, email_Error: true });
-    // } else {
-    //   this.setState({ FormError: false });
-    //   console.log("form submitted");
-    // }
-
+    console.log("this.state", this.state);
     return;
 
     //send form data
@@ -156,7 +123,6 @@ class RegisterForm extends Component {
       session1,
       session2,
     } = this.state;
-
     const renderFirstName = () => (
       <Row>
         <Col xs={12} md={8}>
