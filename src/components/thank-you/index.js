@@ -11,15 +11,39 @@ export const ThankYou = () => {
     return (
       <AddToCalendar
         event={{
-          title: "Happy Hour",
-          description: "Lets go after work",
-          location: "Boston, MA",
-          startsAt: "2021-04-13T17:00:00-05:00",
-          endsAt: "2021-03-10T18:00:00-05:00",
+          title:
+            "Session 1: Learn about a nonsurgical treatment option and review case studies with Dupuytren’s Contracture expert, Dr. Prosper Benhaim",
+          description:
+            "Session 1: Learn about a nonsurgical treatment option and review case studies with Dupuytren’s Contracture expert, Dr. Prosper Benhaim",
+          location: "",
+          startTime: "2021-10-02T12:00:00-04:00",
+          endTime: "2021-10-02T13:00:00-04:00",
         }}
         buttonLabel="ADD TO CALENDAR"
-        // listItems={items}
-        buttonTemplate={{ textOnly: "none" }}
+        buttonTemplate={
+          { textOnly: "none" } // listItems={items}
+        }
+        displayItemIcons={false}
+      />
+    );
+  };
+  const addToCalendarButtonTwo = () => {
+    let items = [{ google: "Google" }, { outlook: "Outlook" }];
+    return (
+      <AddToCalendar
+        event={{
+          title:
+            "Session 2: XIAFLEX® Training and Certification with expert, Dr. Prosper Benhaim",
+          description:
+            "Session 2: XIAFLEX® Training and Certification with expert, Dr. Prosper Benhaim",
+          location: "",
+          startTime: "2021-04-13T12:30:00-04:00",
+          endTime: "2021-04-13T13:30:00-04:00",
+        }}
+        buttonLabel="ADD TO CALENDAR"
+        buttonTemplate={
+          { textOnly: "none" } // listItems={items}
+        }
         displayItemIcons={false}
       />
     );
@@ -93,7 +117,7 @@ export const ThankYou = () => {
               <span className="brand-purple">12:30 PM – 1:30 PM CT</span>
             </div>
             <div className="padding-top padding-bottom">
-              {addToCalendarButton()}
+              {addToCalendarButtonTwo()}
             </div>
           </Col>
         </Row>
