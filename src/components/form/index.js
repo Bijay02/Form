@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Button,
   FormGroup,
   InputGroup,
   Checkbox,
@@ -15,7 +14,7 @@ import { Row, Col } from "react-flexbox-grid";
 const DFA_API_SERVICES_URL = process.env.DFA_API_SERVICES_URL;
 class RegisterForm extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       firstName: "",
       lastName: "",
@@ -25,13 +24,12 @@ class RegisterForm extends Component {
       state: "",
       prevCurrentFellowship: "",
       nameOfPreviousOrCurrent: false,
-      xiaflexUnsub: false,
-      endoUnsub: false,
       FormError: false,
       email_Error: false,
       fellowshipProgram: null,
       session1: false,
       session2: false,
+      // formSubmission: false,
     };
     this.handleXiaflexUnsub = this.handleXiaflexUnsub.bind(this);
     this.handleEndoUnsub = this.handleEndoUnsub.bind(this);
@@ -39,25 +37,27 @@ class RegisterForm extends Component {
     this.validateEmail = this.validateEmail.bind(this);
   }
 
-  validationFields = [
-    "firstName",
-    "lastName",
-    "email",
-    "npi",
-    "city",
-    "state",
-    "prevCurrentFellowship",
-  ];
+  validateEmail = (_email) => {
+    const emailREGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return emailREGEX.test(_email);
+  };
+
+  handleButtonDisable = () => {
+    return (
+      this.state.firstName &&
+      this.state.lastName &&
+      (this.state.email && this.validateEmail(this.state.email)) &&
+      this.state.npi &&
+      this.state.city &&
+      this.state.state &&
+      this.state.fellowshipProgram &&
+      (this.state.session1 || this.state.session2)
+    );
+  };
 
   handleChange = async (event) => {
     event.persist();
-    // const elementType = event.target.type;
-    // if (elementType === 'checkbox') {
-    //   setValues(values => ({
-    //     ...values,
-    //     [event.target.name]: event.target.checked,
-    //   }));
-    // } else {
     if (event.target.type === "checkbox") {
       await this.setState({
         [event.target.name]: event.target.checked,
@@ -81,12 +81,6 @@ class RegisterForm extends Component {
     });
   };
 
-  validateEmail = (_email) => {
-    const emailREGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    return emailREGEX.test(_email);
-  };
-
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.email !== prevState.email && !prevState.email) {
       return {
@@ -97,34 +91,24 @@ class RegisterForm extends Component {
     }
   }
 
-  handleSubmit = () => {
-    const validEmail = this.validateEmail(this.state.email);
-    console.log(
-      "this.validationFields",
-      this.validationFields,
-      this.state["firstName"]
-    );
+  /** set primary or danger class for the form elements */
+  // checkValidation = (fieldName) => {
+  //   return !this.state.formSubmission
+  //     ? "primary"
+  //     : this.state[fieldName]
+  //     ? "primary"
+  //     : "danger";
+  // };
 
-    // this.validationFields.map((field) => {
-    //   console.log("field", field, "this.state", this.state[`${field}`]);
-    //   if (!this.state[`${field}`]) {
-    //     const ele = document.getElementsByName(`${field}`);
-    //     console.log("ele", ele);
-    //     ele.focus();
-    //   }
-    // });
-    if (!validEmail) {
-      this.setState({
-        FormError: true,
-        email_Error: true,
-      });
-    } else {
-      this.setState({
-        FormError: false,
-      });
-      console.log("form submitted");
-    }
+  handleSubmit = () => {
     SourceEmitter.emit(`FormSubmitted`, true);
+    // if (!validForm) {
+    //   this.setState({ FormError: true, email_Error: true });
+    // } else {
+    //   this.setState({ FormError: false });
+    //   console.log("form submitted");
+    // }
+
     return;
 
     //send form data
@@ -156,7 +140,6 @@ class RegisterForm extends Component {
       .catch((error) => {
         console.log(error);
       });
-    //console.log(dataToSend);
   };
 
   render() {
@@ -175,17 +158,19 @@ class RegisterForm extends Component {
       session1,
       session2,
     } = this.state;
-    // const { email } = this.props;
 
-    // console.log(`${email} is passed as ${email}`)
     const renderFirstName = () => (
       <Row>
         <Col xs={12} md={8}>
-          <FormGroup label="First Name:" labelFor="text-first-name">
+          <FormGroup
+            label="First Name:"
+            labelFor="text-first-name"
+            id="form-group-firstName"
+          >
             <InputGroup
               id="text-first-name"
-              intent={(email_Error && "danger") || "primary"}
-              placeholder="Enter first name"
+              // intent={this.checkValidation("firstName")} # we don't need to check as button is disabled until all requied fields are filled out
+              intent="primary"
               large
               onChange={this.handleChange}
               name="firstName"
@@ -198,11 +183,15 @@ class RegisterForm extends Component {
     const renderLastName = () => (
       <Row>
         <Col xs={12} md={8}>
-          <FormGroup label="Last Name" labelFor="text-last-name">
+          <FormGroup
+            label="Last Name"
+            labelFor="text-last-name"
+            id="form-group-lastName"
+          >
             <InputGroup
               id="text-last-name"
-              intent={(email_Error && "danger") || "primary"}
-              placeholder="smith"
+              // intent={this.checkValidation("lastName")}
+              intent="primary"
               large
               onChange={this.handleChange}
               name="lastName"
@@ -218,8 +207,8 @@ class RegisterForm extends Component {
           <FormGroup label="Email:" labelFor="text-email">
             <InputGroup
               id="text-email"
-              intent={(email_Error && "danger") || "primary"}
-              placeholder="jon.smith@example.com"
+              // intent={this.checkValidation("email")}
+              intent="primary"
               large
               onChange={this.handleChange}
               name="email"
@@ -232,15 +221,15 @@ class RegisterForm extends Component {
     const renderNPI = () => (
       <Row>
         <Col xs={12} md={8}>
-          <FormGroup label="NPI:" labelFor="text-npi" labelInfo="(required)">
+          <FormGroup label="NPI:" labelFor="text-npi" id="form-group-npi">
             <InputGroup
               id="text-npi"
-              placeholder="Enter NPI"
               large
               onChange={this.handleChange}
               name="npi"
               value={npi}
-              intent={(email_Error && "danger") || "primary"}
+              // intent={this.checkValidation("npi")}
+              intent="primary"
             />
           </FormGroup>
         </Col>
@@ -252,12 +241,11 @@ class RegisterForm extends Component {
           <FormGroup helperText="" label="City:" labelFor="text-city">
             <InputGroup
               id="text-city"
-              placeholder="Enter City"
               large
               onChange={this.handleChange}
               name="city"
-              value={city}
-              intent={(email_Error && "danger") || "primary"}
+              value={city} // intent={this.checkValidation("city")}
+              intent="primary"
             />
           </FormGroup>
         </Col>
@@ -269,12 +257,11 @@ class RegisterForm extends Component {
           <FormGroup helperText="" label="State:" labelFor="text-state">
             <InputGroup
               id="text-state"
-              placeholder="Enter State"
               large
               onChange={this.handleChange}
               name="state"
-              value={state}
-              intent={(email_Error && "danger") || "primary"}
+              value={state} // intent={this.checkValidation("state")}
+              intent="primary"
             />
           </FormGroup>
         </Col>
@@ -290,12 +277,11 @@ class RegisterForm extends Component {
           >
             <InputGroup
               id="text-prev-current-fellowship"
-              placeholder="Enter previous or current hand fellowship"
               large
               onChange={this.handleChange}
               name="prevCurrentFellowship"
               value={prevCurrentFellowship}
-              intent={(email_Error && "danger") || "primary"}
+              intent="primary"
             />
           </FormGroup>
         </Col>
@@ -307,7 +293,7 @@ class RegisterForm extends Component {
         onChange={this.handleChange}
         selectedValue={fellowshipProgram}
         name="fellowshipProgram"
-        className="bp3-form-group"
+        className="bp3-form-group bp3-form-fellowship"
       >
         <Radio
           label="Yes:"
@@ -333,13 +319,7 @@ class RegisterForm extends Component {
           </Col>
         </Row>
         <div className="reset-margin-container">
-          <Row
-            style={{
-              marginLeft: "0px",
-              marginRight: "0px",
-              padding: "16px 8px",
-            }}
-          >
+          <Row>
             <Col xs={12}>
               <Checkbox
                 large={true}
@@ -371,13 +351,7 @@ class RegisterForm extends Component {
           </Row>
         </div>
         <div className="reset-margin-container">
-          <Row
-            style={{
-              marginLeft: "0px",
-              marginRight: "0px",
-              padding: "16px 8px",
-            }}
-          >
+          <Row>
             <Col xs={12}>
               <Checkbox
                 large={true}
@@ -423,44 +397,18 @@ class RegisterForm extends Component {
         {renderPrevCurrentFellowShip()}
         {renderFellowship()}
         {renderSessionToAttend()}
-        <Row style={{ marginTop: "12px" }}>
-          <Col xs={12}>
-            <Checkbox
-              large
-              checked={xiaflexUnsub}
-              onChange={this.handleXiaflexUnsub}
-            >
-              I would like to unsubscribe from promotional emails about XIAFLEX
-              <sup>&reg;</sup> for Peyronie's disease.
-            </Checkbox>
-          </Col>
-          <Col xs={12}>
-            <Checkbox
-              large
-              checked={endoUnsub}
-              onChange={this.handleEndoUnsub}
-              label="I would like to unsubscribe from emails from Endo Pharmaceuticals Inc."
-            />
-          </Col>
-        </Row>
         <Row>
           <Col xs={12}>
-            <Button
-              // style={{
-              //   backgroundColor: "#eb5903",
-              //   color: "#fff",
-              //   width: "150px",
-              //   border: "1px solid #c14f1a",
-              //   borderRadius: "0px",
-              //   fontWeight: "bold",
-              // }}
-              intent="warning"
-              type="submit"
-              large
-              text="SUBMIT"
-              disabled={!xiaflexUnsub && !endoUnsub}
+            <button
+              type="button"
               onClick={this.handleSubmit}
-            />
+              className={`btn-submit-registration ${
+                !this.handleButtonDisable() ? "disabled" : ""
+              }`}
+              disabled={!this.handleButtonDisable()}
+            >
+              SUBMIT
+            </button>
           </Col>
         </Row>
       </div>

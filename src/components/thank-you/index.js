@@ -3,6 +3,7 @@ import { Text, Button } from "@blueprintjs/core";
 import { Row, Col } from "react-flexbox-grid";
 import AddToCalendar from "react-add-to-calendar";
 import "react-add-to-calendar/dist/react-add-to-calendar.css";
+import "./index.scss";
 /** Thank You Component */
 export const ThankYou = () => {
   const addToCalendarButton = () => {
