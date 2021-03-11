@@ -76,7 +76,7 @@ const Footer = () => (
               <img src={imgEndoLogo} className="footer-logo" />
             </a>
           </Col>
-          <Col xs={12} md={8} className="rx-block">
+          <Col xs={12} md={8} className="rx-block endo-footer-other-content">
             <p className="txt-rx-only">&nbsp;</p>
             <p className="footer">
               XIAFLEX<sup>&reg;</sup> is a registered trademark of{" "}
