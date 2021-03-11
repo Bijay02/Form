@@ -1,9 +1,68 @@
-@import '../../scss/configs';
+@import "../../scss/configs";
 
-.bp3-form-group, .bp3-input-group, .bp3-control, .bp3-button {
-    font-family: Arial, $helvi;
+.bp3-text,
+.bp3-form-group,
+.bp3-input-group,
+.bp3-control,
+.bp3-button {
+  font-family: Arial, $helvi;
 }
 
 .form-container {
-    background-color: white;
+  background-color: white;
+}
+
+.radio-label-container {
+  box-sizing: border-box;
+  width: 65px;
+}
+
+.brand-purple {
+  color: $brand-purple;
+}
+
+.brand-orange {
+  color: $brand-orange;
+}
+
+.bkg-brand-orange {
+  background: $brand-orange;
+}
+
+.brand-bold-purple {
+  @extend .brand-purple;
+  font-weight: bold;
+}
+
+.bp3-button {
+  &.bkg-brand-orange {
+    background: $brand-orange;
+  }
+}
+
+.reset-margin-container {
+  border: 1px solid $brand-purple;
+  margin-left: -16px;
+  margin-right: -16px;
+  margin-top: 16px;
+  @media only screen and (max-width: $md-min) {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.padding-top {
+  padding-top: 3 * $base-padding;
+}
+
+.padding-bottom {
+  padding-bottom: $base-padding;
+}
+
+.react-add-to-calendar__dropdown {
+  z-index: 10;
 }
