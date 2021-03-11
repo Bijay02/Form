@@ -127,8 +127,6 @@ class RegisterForm extends Component {
     axios
       .post(DFA_API_SERVICES_URL, dataToSend)
       .then((response) => {
-        //console.log(response);
-        //Clear statea
         this.setState({
           email: "",
           xiaflexUnsub: false,
