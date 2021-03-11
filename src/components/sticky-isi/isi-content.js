@@ -1,82 +1,125 @@
-import React from 'react'
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import React from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const ISIContent = props => (
-    <div className="isi-content">
-
-      <div className="inner-container">
-        {!props.isiExpanded && (
-
-          <AnchorLink href="#isi_jump" offset='65' className="isi-see-more hide-in-desktop">
-            <span className="link-see-more">See More</span>
-            <span className="arrow-see-more">▾</span>
-          </AnchorLink>
-
-        )}
-        <a name="ISI_ANCHOR"/>
-        <p className="isi_head">Important Safety Information <nobr>for XIAFLEX<sup className="reg_mark">®</sup></nobr><span className="hidden-xs hidden-sm">&nbsp;</span></p>
-        <span className="strong">Do not receive XIAFLEX<sup className="reg_mark">®</sup> if you:</span>
-        <ul>
-          <li>have been told by your healthcare provider that the Peyronie's plaque to be treated involves the "tube" that your urine passes through (urethra)</li>
-          <li>are allergic to collagenase clostridium histolyticum or any of the ingredients in XIAFLEX<sup className="reg_mark">®</sup>, or to any other collagenase product. See the end of the Medication Guide for a complete list of ingredients in XIAFLEX<sup className="reg_mark">®</sup></li>
-        </ul>
-        <p className="strong top-margin-only">XIAFLEX<sup className="reg_mark">®</sup> can cause serious side effects, including:</p>
-        <ol>
-          <li className="bold-number"><span className="strong">Penile fracture (corporal rupture) or other serious injury to the penis.</span> <span className="normal">Receiving an injection of XIAFLEX<sup className="reg_mark">®</sup> may cause damage to the tubes in your penis called the corpora. After treatment with XIAFLEX<sup className="reg_mark">®</sup>, one of these tubes may break during an erection. This is called a corporal rupture or penile fracture. This could require surgery to fix the damaged area. Damage to your penis might not get better after a corporal rupture.</span>
-            <ul>
-              <li><span className="normal">After treatment with XIAFLEX<sup className="reg_mark">®</sup>, blood vessels in your penis may also break, causing blood to collect under the skin (hematoma). This could require a procedure to drain the blood from under the skin</span></li>
-            </ul>
-            <p className="no-margin">Symptoms of corporal rupture or other serious injury to your penis may include:</p>
-            <ul>
-              <li>a popping sound or sensation in an erect penis</li>
-              <li>sudden loss of the ability to maintain an erection</li>
-              <li>pain in your penis</li>
-              <li>purple bruising and swelling of your penis</li>
-              <li>difficulty urinating or blood in the urine</li>
-            </ul>
-            <p className="strong">Call your healthcare provider right away if you have any of the symptoms of corporal rupture or serious injury to the penis listed above.</p>
-            <p className="strong">Do not have sex or any other sexual activity between the first and second injections of a treatment cycle.</p>
-            <p><span className="strong">Do not have sex or have any other sexual activity for at least 4 weeks after the second injection</span>  of a treatment cycle with XIAFLEX<sup className="reg_mark">®</sup> and after any pain and swelling have gone away.</p>
-            <p>XIAFLEX<sup className="reg_mark">®</sup> for the treatment of Peyronie's disease is only available through a restricted program called the XIAFLEX<sup className="reg_mark">®</sup> Risk Evaluation and Mitigation Strategy (REMS) Program. For more information about the XIAFLEX<sup className="reg_mark">®</sup> REMS Program, go to <a className="rems-link external_link" href="http://www.xiaflexrems.com" target="_blank" data-ga-category="exit" data-ga-action="https://dupuytrens-contracture.xiaflex.com/patient" data-ga-label="rems training">www.XIAFLEXREMS.com</a> or call 1-877-313-1235.</p>
-          </li>
-          <li className="bold-number"><span className="strong">Hypersensitivity reactions, including anaphylaxis.</span> <span className="normal">Severe allergic reactions can happen in people who receive XIAFLEX<sup className="reg_mark">®</sup>, because it contains foreign proteins.</span>
-            <p className="strong no-margin">Call your healthcare provider right away if you have any of these symptoms of an allergic reaction after an injection of XIAFLEX<sup className="reg_mark">®</sup>:</p>
-            <ul>
-              <li>hives</li>
-              <li>swollen face</li>
-              <li>breathing trouble</li>
-              <li>chest pain</li>
-              <li>low blood pressure</li>
-              <li>dizziness or fainting</li>
-            </ul>
-          </li>
-        </ol>
-        <p>Before receiving XIAFLEX<sup className="reg_mark">®</sup>, tell your healthcare provider if you have had an allergic reaction to a previous XIAFLEX<sup className="reg_mark">®</sup> injection, or have a bleeding problem or any other medical conditions. Tell your healthcare provider about all the medicines you take, including prescription and non‑prescription medicines, vitamins, and herbal supplements. Using XIAFLEX<sup className="reg_mark">®</sup> with certain other medicines can cause serious side effects. Especially tell your healthcare provider if you take medicines to thin your blood (anticoagulants). If you are told to stop taking a blood thinner before your XIAFLEX<sup className="reg_mark">®</sup> injection, your healthcare provider should tell you when to restart the blood thinner. Ask your healthcare provider or pharmacist for a list of these medicines if you are unsure.</p>
-        <p><span className="strong">What should I avoid while receiving XIAFLEX<sup className="reg_mark">®</sup>?</span><br />Avoid situations that may cause you to strain your stomach (abdominal) muscles, such as straining during bowel movements.</p>
-        <p><span className="strong">Do not use a vacuum erection device during your treatment with XIAFLEX<sup className="reg_mark">®</sup>.</span></p>
-        <p className="top-margin-only"><span className="strong">XIAFLEX<sup className="reg_mark">®</sup> can cause serious side effects, including increased chance of bleeding.</span> Bleeding or bruising at the injection site can happen in people who receive XIAFLEX<sup className="reg_mark">®</sup>. Talk to your healthcare provider if you have a problem with your blood clotting. XIAFLEX<sup className="reg_mark">®</sup> may not be right for you. </p>
-        <p className="no-margin">The most common side effects with XIAFLEX<sup className="reg_mark">®</sup> for the treatment of Peyronie's disease include:</p>
-        <ul>
-          <li>a small collection of blood under the skin at the injection site (hematoma)</li>
-          <li>swelling at the injection site or along your penis</li>
-          <li>pain or tenderness at the injection site, along your penis and above your penis</li>
-          <li>penis bruising</li>
-          <li>itching of your penis or scrotum (genitals)</li>
-          <li>painful erection</li>
-          <li>erection problems (erectile dysfunction)</li>
-          <li>changes in the color of the skin of your penis</li>
-          <li>blisters at the injection site</li>
-          <li>pain with sex</li>
-          <li>a lump at the injection site (nodule)</li>
-        </ul>
-        <p>Tell your healthcare provider if you have any side effect that bothers you or does not go away.</p>
-        <p>These are not all of the possible side effects with XIAFLEX<sup className="reg_mark">®</sup>. For more information, ask your healthcare provider or pharmacist.</p>
-        <p className="isi_head pad_top">What is XIAFLEX<sup className="reg_mark">®</sup>?</p>
-        <p>XIAFLEX<sup className="reg_mark">®</sup> is a prescription medicine used to treat adult men with Peyronie's disease who have a "plaque" that can be felt and a curve in their penis greater than 30 degrees when treatment is started.</p>
-        <p>It is not known if XIAFLEX<sup className="reg_mark">®</sup> is safe and effective in children under the age of 18.</p>
-        <p className="strong full_isi_text">Please see the <a href="http://www.endo.com/File%20Library/Products/Prescribing%20Information/Xiaflex_prescribing_information.html" target="_blank" onclick="globalObject.trackEvent(&quot;exit&quot;, &quot;click&quot;, &quot;FULL PRESCRIBING INFORMATION&quot;);">full Prescribing Information</a>, including Boxed Warning and <a href="http://www.endo.com/File%20Library/Products/Prescribing%20Information/Xiaflex_prescribing_information.html#endoanchor-MG" target="_blank" onclick="globalObject.trackEvent(&quot;exit&quot;, &quot;click&quot;, &quot;Medication Guide&quot;);">Medication Guide</a>.</p>
-      </div>
+const ISIContent = (props) => (
+  <div className="isi-content">
+    <div className="inner-container">
+      {!props.isiExpanded && (
+        <AnchorLink
+          href="#isi_jump"
+          offset="65"
+          className="isi-see-more hide-in-desktop"
+        >
+          <span className="link-see-more">See More</span>
+          <span className="arrow-see-more">▾</span>
+        </AnchorLink>
+      )}
+      <a name="ISI_ANCHOR" />
+      <p className="isi_head brand-orange">INDICATION</p>
+      <p>
+        XIAFLEX<sup className="reg_mark">&reg;</sup> is indicated for the
+        treatment of adult patients with Dupuytren’s contracture with a palpable
+        cord.
+      </p>
+      <p className="isi_head brand-orange">
+        Important Safety Information{" "}
+        <nobr>
+          for XIAFLEX<sup className="reg_mark">&reg;</sup>
+        </nobr>
+        <span className="hidden-xs hidden-sm">&nbsp;</span>
+      </p>
+      <ul>
+        <li>
+          XIAFLEX<sup className="reg_mark">&reg;</sup> is contraindicated in
+          patients with a history of hypersensitivity to XIAFLEX
+          <sup className="reg_mark">&reg;</sup> or to collagenase used in any
+          other therapeutic application or application method
+        </li>
+        <li>
+          In the controlled and uncontrolled portions of clinical trials in
+          Dupuytren’s contracture, flexor tendon ruptures occurred after XIAFLEX
+          <sup className="reg_mark">&reg;</sup> injection. Injection of XIAFLEX
+          <sup className="reg_mark">&reg;</sup> nto collagen-containing
+          structures such as tendons or ligaments of the hand may result in
+          damage to those structures and possible permanent injury such as
+          tendon rupture or ligament damage. Therefore, XIAFLEX® should be
+          injected only into the collagen cord with a MP or PIP joint
+          contracture, and care should be taken to avoid injecting into tendons,
+          nerves, blood vessels, or other collagen-containing structures of the
+          hand. When injecting a cord affecting a PIP joint of the fifth finger,
+          the needle insertion should not be more than 2 to 3 mm in depth and
+          avoid injecting more than 4 mm distal to the palmar digital crease
+        </li>
+        <li>
+          Other XIAFLEX<sup className="reg_mark">&reg;</sup> -associated serious
+          local adverse reactions in the controlled and uncontrolled portions of
+          the studies included pulley rupture, ligament injury, complex regional
+          pain syndrome (CRPS), sensory abnormality of the hand, and skin
+          laceration (tear). In a historically controlled post-marketing trial,
+          the incidence of skin laceration (22%) was higher for subjects treated
+          with two concurrent injections of XIAFLEX
+          <sup className="reg_mark">&reg;</sup> compared with subjects treated
+          with up to three single injections in the placebo-controlled
+          premarketing trials (9%). Cases of skin laceration requiring skin
+          graft after finger extension procedures have been reported
+          post-marketing. Signs or symptoms that may reflect serious injury to
+          the injected finger/hand should be promptly evaluated because surgical
+          intervention may be required
+        </li>
+        <li>
+          In the controlled portions of the clinical trials in Dupuytren’s
+          contracture, a greater proportion of XIAFLEX
+          <sup className="reg_mark">&reg;</sup>-treated patients (15%) compared
+          to placebo-treated patients (1%) had mild allergic reactions
+          (pruritus) after up to 3 injections. The incidence of XIAFLEX
+          <sup className="reg_mark">&reg;</sup>-associated pruritus increased
+          after more XIAFLEX® injections in patients with Dupuytren’s
+          contracture
+        </li>
+        <li>
+          Because XIAFLEX<sup className="reg_mark">&reg;</sup> contains foreign
+          proteins, severe allergic reactions to XIAFLEX
+          <sup className="reg_mark">&reg;</sup> can occur. Anaphylaxis was
+          reported in a post-marketing clinical study in one patient who had
+          previous exposure to XIAFLEX<sup className="reg_mark">&reg;</sup> for
+          the treatment of Dupuytren’s contracture. Healthcare providers should
+          be prepared to address severe allergic reactions following XIAFLEX
+          <sup className="reg_mark">&reg;</sup>
+          injections
+        </li>
+        <li>
+          In the XIAFLEX<sup className="reg_mark">&reg;</sup> trials in
+          Dupuytren’s contracture, 70% and 38% of XIAFLEX
+          <sup className="reg_mark">&reg;</sup>-treated patients developed an
+          ecchymosis/contusion or an injection site hemorrhage, respectively.
+          Patients with abnormal coagulation (except for patients taking
+          low-dose aspirin, eg, up to 150 mg per day) were excluded from
+          participating in these studies. Therefore, the efficacy and safety of
+          XIAFLEX<sup className="reg_mark">&reg;</sup> in patients receiving
+          anticoagulant medications (other than low-dose aspirin, eg, up to 150
+          mg per day) within 7 days prior to XIAFLEX
+          <sup className="reg_mark">&reg;</sup> administration is not known. In
+          addition, it is recommended to avoid use of XIAFLEX
+          <sup className="reg_mark">&reg;</sup> in patients with coagulation
+          disorders, including patients receiving concomitant anticoagulants
+          (except for low-dose aspirin)
+        </li>
+        <li>
+          In the XIAFLEX<sup className="reg_mark">&reg;</sup> clinical trials
+          for Dupuytren’s contracture, the most common adverse reactions
+          reported in ≥25% of patients treated with XIAFLEX
+          <sup className="reg_mark">&reg;</sup> and at an incidence greater than
+          placebo were edema peripheral (eg, swelling of the injected hand),
+          contusion, injection site hemorrhage, injection site reaction, and
+          pain in the injected extremity
+        </li>
+      </ul>
+      <p className="strong full_isi_text">
+        Please see accompanying full Prescribing Information, including
+        Medication Guide.
+      </p>
     </div>
-)
+  </div>
+);
 
-export default ISIContent
+export default ISIContent;

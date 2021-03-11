@@ -1,4 +1,4 @@
-@import './configs';
+@import "./configs";
 
 html,
 body {
@@ -74,7 +74,7 @@ button:focus {
     .side-isi-scroller {
       overflow: scroll;
       height: 515px;
-      border: 2px solid #FFE179;
+      border: 2px solid #ffe179;
     }
   }
   @media only screen and (max-width: $md-min) {
@@ -92,6 +92,10 @@ button:focus {
     max-width: $base-maxwidth;
     padding-top: $base-padding;
     padding-bottom: $base-padding;
+    padding-left: 15px;
+    @media only screen and (max-width: $md-min) {
+      padding-left: 0px;
+    }
   }
 }
 
@@ -136,6 +140,6 @@ h4 {
   font-family: Arial, $helvi;
 
   strong {
-    font-family: $helvi-md-cn, Arial, Helvetica, sans-serif;            
+    font-family: $helvi-md-cn, Arial, Helvetica, sans-serif;
   }
 }

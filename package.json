@@ -27,6 +27,7 @@
     "npm": "^6.4.1",
     "react": "^16.6.3",
     "react-accessible-accordion": "^2.4.5",
+    "react-add-to-calendar": "^0.1.5",
     "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-awesome-modal": "^2.0.5",
     "react-device-detect": "^1.6.2",
