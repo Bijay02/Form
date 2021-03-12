@@ -21,6 +21,10 @@
   color: $brand-purple;
 }
 
+.brand-grey {
+  color: $brand-grey;
+}
+
 .brand-orange {
   color: $brand-orange;
 }
@@ -67,18 +71,32 @@
   z-index: 10;
 }
 
-.btn-submit-registration {
+.bkg-brand-orange-container {
   background: $brand-orange;
   color: #fff;
   cursor: pointer;
   border: 1px solid $brand-orange;
+  box-sizing: border-box;
+}
+
+.btn-submit-registration {
+  @extend .bkg-brand-orange-container;
   width: 140px;
   padding: $base-padding;
-  box-sizing: border-box;
   font-weight: bold;
   margin-top: 12px;
   &.disabled {
     opacity: 0.5;
+  }
+}
+
+.add-to-calendar {
+  @extend .bkg-brand-orange-container;
+  font-weight: bold;
+  padding: $base-padding;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
   }
 }
 
@@ -95,4 +113,8 @@
     margin-right: 0px;
     padding: 16px 8px;
   }
+}
+
+.brand-navy-blue {
+  color: $brand-navy-blue;
 }

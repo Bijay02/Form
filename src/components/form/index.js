@@ -24,8 +24,7 @@ class RegisterForm extends Component {
       state: "",
       prevCurrentFellowship: "",
       fellowshipProgram: null,
-      session1: false,
-      session2: false,
+      session: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
@@ -46,7 +45,7 @@ class RegisterForm extends Component {
       this.state.city &&
       this.state.state &&
       this.state.fellowshipProgram &&
-      (this.state.session1 || this.state.session2)
+      this.state.session
     );
   };
 
@@ -120,8 +119,7 @@ class RegisterForm extends Component {
       state,
       fellowshipProgram,
       prevCurrentFellowship,
-      session1,
-      session2,
+      session,
     } = this.state;
     const renderFirstName = () => (
       <Row>
@@ -276,9 +274,7 @@ class RegisterForm extends Component {
         <Row>
           <Col xs={12}>
             <Text className="bp3-text">
-              Please select the{" "}
-              <span className="brand-bold-purple">[session/sessions]</span> you
-              would like to attend:
+              Please select the [session/sessions] you would like to attend:
             </Text>
           </Col>
         </Row>
@@ -287,61 +283,26 @@ class RegisterForm extends Component {
             <Col xs={12}>
               <Checkbox
                 large={true}
-                checked={session1}
-                onChange={this.handleChange}
-                name="session1"
-                labelElement={
-                  <span className="text-bold">
-                    <span className="brand-bold-purple">Session 1:</span> Learn
-                    about a nonsurgical treatment option and review case studies
-                    with Dupuytren’s Contracture expert,{" "}
-                    <span className="brand-bold-purple">
-                      Dr. Prosper Benhaim
-                    </span>
-                  </span>
-                }
-              />
-              <div style={{ paddingLeft: "30px" }}>
-                <div>
-                  <span className="text-bold">Date:</span>{" "}
-                  <span className="brand-purple">Friday, October 2</span>
-                </div>
-                <div>
-                  <span className="text-bold">Time:</span>{" "}
-                  <span className="brand-purple">12:00PM - 1:00 PM CT</span>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </div>
-        <div className="reset-margin-container">
-          <Row>
-            <Col xs={12}>
-              <Checkbox
-                large={true}
-                checked={session2}
-                name="session2"
+                checked={session}
+                name="session"
                 onChange={this.handleChange}
                 labelElement={
-                  <span className="text-bold">
-                    <span className="brand-bold-purple">Session 2:</span>{" "}
+                  <span>
                     XIAFLEX
-                    <sup className="reg_mark">®</sup> Training and Certification
-                    with expert,{" "}
-                    <span className="brand-bold-purple">
-                      Dr. Prosper Benhaim
-                    </span>
+                    <sup className="reg_mark">&reg;</sup> Training and
+                    Certification with expert,{" "}
+                    <span className="brand-navy-blue">Dr. Prosper Benhaim</span>
                   </span>
                 }
               />
               <div style={{ paddingLeft: "30px" }}>
                 <div>
-                  <span className="text-bold">Date:</span>{" "}
-                  <span className="brand-purple">Tuesday, April 13</span>
+                  <span>Date:</span>{" "}
+                  <span className="brand-grey">Tuesday, April 13</span>
                 </div>
                 <div>
-                  <span className="text-bold">Time:</span>{" "}
-                  <span className="brand-purple">12:30 PM – 1:30 PM CT</span>
+                  <span>Time:</span>{" "}
+                  <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
                 </div>
               </div>
             </Col>

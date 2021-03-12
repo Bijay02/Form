@@ -60,13 +60,7 @@ class IndexPage extends Component {
       <>
         <Row>
           <Col xs={12}>
-            <p>
-              Register here for an Endo-sponsored program at the{" "}
-              <span className="brand-bold-purple">
-                [AAHS Virtual Annual Meeting]
-              </span>
-              !
-            </p>
+            <p>Register here for an Endo-sponsored program!</p>
           </Col>
         </Row>
       </>

@@ -13,19 +13,20 @@ $helvi-md-65: "Helvetica Neue LT W05_65 Medium";
 $brand-green: #00b8b0;
 $brand-purple: #c43996;
 $brand-lt-purple: #d172af;
-$brand-yellow: #FFE179;
+$brand-yellow: #ffe179;
 $brand-orange: #eb5903;
+$brand-navy-blue: #002e5d;
+$brand-grey: #707070;
 
-@import './fonts';
+@import "./fonts";
 
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
-
 
 $base-padding: 0.5rem;
 $base-maxwidth: 960px;
 $base-fontsize: 16;
 
 @mixin font-size($n) {
-    font-size: (1/$base-fontsize)*$n + rem;
-  }
+  font-size: (1 / $base-fontsize) * $n + rem;
+}
