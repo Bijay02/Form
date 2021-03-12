@@ -1,10 +1,10 @@
 import React from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+// import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const HCPISIContent = (props) => (
   <div className="isi-content">
     <div className="inner-container">
-      {!props.isiExpanded && (
+      {/* {!props.isiExpanded && (
         <AnchorLink
           href="#isi_jump"
           offset="65"
@@ -13,7 +13,7 @@ const HCPISIContent = (props) => (
           <span className="link-see-more">See More</span>
           <span className="arrow-see-more">▾</span>
         </AnchorLink>
-      )}
+      )} */}
       <a name="ISI_ANCHOR" />
       <p className="isi_head">
         Important Safety{" "}

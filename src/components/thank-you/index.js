@@ -1,13 +1,11 @@
-import React from "react";
-import { Text, Button } from "@blueprintjs/core";
+import React, { Component } from "react";
+import { Text } from "@blueprintjs/core";
 import { Row, Col } from "react-flexbox-grid";
-import AddToCalendar from "react-add-to-calendar";
-import "react-add-to-calendar/dist/react-add-to-calendar.css";
 import "./index.scss";
 /** Thank You Component */
 export const ThankYou = () => {
   return (
-    <>
+    <div class="thank-you-container">
       <Row>
         <Col xs={12}>
           <Row start="xs" center="md">
@@ -22,29 +20,34 @@ export const ThankYou = () => {
       <Row>
         <Col xs={12}>
           <Text className="bp3-text">
-            Click the [button/buttons] below to add the [session/sessions] to
-            your calendar.
+            Click the button below to add the session to your calendar.
           </Text>
         </Col>
       </Row>
       <div className="reset-margin-container">
         <Row
-          style={{ marginLeft: "0px", marginRight: "0px", padding: "16px 8px" }}
+          style={{
+            marginLeft: "0px",
+            marginRight: "0px",
+            padding: "16px 8px",
+          }}
         >
           <Col xs={12}>
-            <span className="text-bold">
-              XIAFLEX
-              <sup className="reg_mark">®</sup> Training and Certification with
-              expert,{" "}
-              <span className="brand-navy-blue">Dr. Prosper Benhaim</span>
+            <span>
+              <span className=" brand-navy-blue text-bold">
+                XIAFLEX
+                <sup className="reg_mark">®</sup> Training and Certification
+                with expert,{" "}
+              </span>{" "}
+              Dr. Prosper Benhaim
             </span>
             <div>
-              <span>Date:</span>{" "}
+              <span className="text-bold">Date:</span>{" "}
               <span className="brand-grey">Tuesday, April 13</span>
             </div>
             <div>
-              <span>Time:</span>{" "}
-              <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
+              <span className="text-bold">Time:</span>{" "}
+              <span className="brand-grey">8:00 PM – 9:30 PM EST, 2021</span>
             </div>
             <div className="padding-top padding-bottom">
               <a class="add-to-calendar" href="calendar/invite.ics" download>
@@ -54,6 +57,6 @@ export const ThankYou = () => {
           </Col>
         </Row>
       </div>
-    </>
+    </div>
   );
 };

@@ -8,15 +8,15 @@ import "../components/form/form.scss";
 import { ThankYou } from "../components/thank-you";
 const metaTags = {
   description:
-    "Xiaflex: You have been unsubscribed from XIAFLEX® promotional emails.",
-  keywords: "You have been unsubscribed from XIAFLEX® promotional emails.",
+    "Xiaflex: Training and Certification with expert, Dr. Prosper Benhaim",
+  keywords: "Training and Certification with expert, Dr. Prosper Benhaim",
 };
 
 let Subscription_Form_Submit = null;
 
 class IndexPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       formCompleted: false,

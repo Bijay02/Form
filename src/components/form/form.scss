@@ -10,6 +10,7 @@
 
 .form-container {
   background-color: white;
+  font-family: Arial, $helvi;
 }
 
 .radio-label-container {
@@ -45,10 +46,10 @@
 }
 
 .reset-margin-container {
-  border: 1px solid $brand-purple;
   margin-left: -16px;
   margin-right: -16px;
   margin-top: $base-padding;
+  font-family: Arial, $helvi;
   @media only screen and (min-width: $md-min) {
     width: $base-maxwidth;
   }
