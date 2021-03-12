@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  functions = "src/functions"
+  publish = "public"
+
+[[redirects]]
+  from = "/api/signup-service"
+  to = "/.netlify/functions/signup-service"
+  status = 200
+
