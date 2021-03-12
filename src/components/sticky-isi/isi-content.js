@@ -39,19 +39,20 @@ const ISIContent = (props) => (
           In the controlled and uncontrolled portions of clinical trials in
           Dupuytren’s contracture, flexor tendon ruptures occurred after XIAFLEX
           <sup className="reg_mark">&reg;</sup> injection. Injection of XIAFLEX
-          <sup className="reg_mark">&reg;</sup> nto collagen-containing
+          <sup className="reg_mark">&reg;</sup> into collagen-containing
           structures such as tendons or ligaments of the hand may result in
           damage to those structures and possible permanent injury such as
-          tendon rupture or ligament damage. Therefore, XIAFLEX® should be
-          injected only into the collagen cord with a MP or PIP joint
-          contracture, and care should be taken to avoid injecting into tendons,
-          nerves, blood vessels, or other collagen-containing structures of the
-          hand. When injecting a cord affecting a PIP joint of the fifth finger,
-          the needle insertion should not be more than 2 to 3 mm in depth and
-          avoid injecting more than 4 mm distal to the palmar digital crease
+          tendon rupture or ligament damage. Therefore, XIAFLEX
+          <sup className="reg_mark">&reg;</sup> should be injected only into the
+          collagen cord with a MP or PIP joint contracture, and care should be
+          taken to avoid injecting into tendons, nerves, blood vessels, or other
+          collagen-containing structures of the hand. When injecting a cord
+          affecting a PIP joint of the fifth finger, the needle insertion should
+          not be more than 2 to 3 mm in depth and avoid injecting more than 4 mm
+          distal to the palmar digital crease
         </li>
         <li>
-          Other XIAFLEX<sup className="reg_mark">&reg;</sup> -associated serious
+          Other XIAFLEX<sup className="reg_mark">&reg;</sup>-associated serious
           local adverse reactions in the controlled and uncontrolled portions of
           the studies included pulley rupture, ligament injury, complex regional
           pain syndrome (CRPS), sensory abnormality of the hand, and skin
@@ -62,7 +63,7 @@ const ISIContent = (props) => (
           with up to three single injections in the placebo-controlled
           premarketing trials (9%). Cases of skin laceration requiring skin
           graft after finger extension procedures have been reported
-          post-marketing. Signs or symptoms that may reflect serious injury to
+          post-­marketing. Signs or symptoms that may reflect serious injury to
           the injected finger/hand should be promptly evaluated because surgical
           intervention may be required
         </li>
@@ -71,29 +72,27 @@ const ISIContent = (props) => (
           contracture, a greater proportion of XIAFLEX
           <sup className="reg_mark">&reg;</sup>-treated patients (15%) compared
           to placebo-treated patients (1%) had mild allergic reactions
-          (pruritus) after up to 3 injections. The incidence of XIAFLEX
-          <sup className="reg_mark">&reg;</sup>-associated pruritus increased
-          after more XIAFLEX® injections in patients with Dupuytren’s
-          contracture
+          (pruritus) after up to 3 injections. The incidence of
+          XIAFLEX®-associated pruritus increased after more XIAFLEX
+          <sup className="reg_mark">&reg;</sup> injections in patients with
+          Dupuytren’s contracture
         </li>
         <li>
           Because XIAFLEX<sup className="reg_mark">&reg;</sup> contains foreign
           proteins, severe allergic reactions to XIAFLEX
           <sup className="reg_mark">&reg;</sup> can occur. Anaphylaxis was
           reported in a post-marketing clinical study in one patient who had
-          previous exposure to XIAFLEX<sup className="reg_mark">&reg;</sup> for
-          the treatment of Dupuytren’s contracture. Healthcare providers should
-          be prepared to address severe allergic reactions following XIAFLEX
-          <sup className="reg_mark">&reg;</sup>
-          injections
+          previous exposure to XIAFLEX® for the treatment of Dupuytren’s
+          contracture. Healthcare providers should be prepared to address severe
+          allergic reactions following XIAFLEX
+          <sup className="reg_mark">&reg;</sup> injections
         </li>
         <li>
           In the XIAFLEX<sup className="reg_mark">&reg;</sup> trials in
-          Dupuytren’s contracture, 70% and 38% of XIAFLEX
-          <sup className="reg_mark">&reg;</sup>-treated patients developed an
-          ecchymosis/contusion or an injection site hemorrhage, respectively.
-          Patients with abnormal coagulation (except for patients taking
-          low-dose aspirin, eg, up to 150 mg per day) were excluded from
+          Dupuytren’s contracture, 70% and 38% of XIAFLEX®-treated patients
+          developed an ecchymosis/contusion or an injection site hemorrhage,
+          respectively. Patients with abnormal coagulation (except for patients
+          taking low-dose aspirin, eg, up to 150 mg per day) were excluded from
           participating in these studies. Therefore, the efficacy and safety of
           XIAFLEX<sup className="reg_mark">&reg;</sup> in patients receiving
           anticoagulant medications (other than low-dose aspirin, eg, up to 150
@@ -115,8 +114,19 @@ const ISIContent = (props) => (
         </li>
       </ul>
       <p className="strong full_isi_text">
-        Please see accompanying full Prescribing Information, including
-        Medication Guide.
+        Please see the full{" "}
+        <a
+          class="isi-text-link"
+          href="https://endodocuments.com/xiaflex/pi"
+          target="_blank"
+        >
+          Prescribing Information
+        </a>
+        , including{" "}
+        <a class="isi-text-link" href="https://endodocuments.com/xiaflex/mg">
+          Medication Guide
+        </a>
+        .
       </p>
     </div>
   </div>
