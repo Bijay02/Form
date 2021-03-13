@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Helmet from "react-helmet";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+// import AnchorLink from "react-anchor-link-smooth-scroll";
 import { StaticQuery, graphql } from "gatsby";
 import { Grid } from "react-flexbox-grid";
 import posed, { PoseGroup } from "react-pose";

@@ -74,7 +74,6 @@ class RegisterForm extends Component {
 
   handleSubmit = () => {
     SourceEmitter.emit(`FormSubmitted`, true);
-    console.log("this.state", this.state);
     return;
 
     //send form data
@@ -146,7 +145,7 @@ class RegisterForm extends Component {
       <Row>
         <Col xs={12} md={8}>
           <FormGroup
-            label="Last Name"
+            label="Last Name:"
             labelFor="text-last-name"
             id="form-group-lastName"
           >
@@ -274,7 +273,7 @@ class RegisterForm extends Component {
         <Row>
           <Col xs={12}>
             <Text className="bp3-text">
-              Please select the [session/sessions] you would like to attend:
+              Please select the session you would like to attend:
             </Text>
           </Col>
         </Row>
@@ -288,21 +287,25 @@ class RegisterForm extends Component {
                 onChange={this.handleChange}
                 labelElement={
                   <span>
-                    XIAFLEX
-                    <sup className="reg_mark">&reg;</sup> Training and
-                    Certification with expert,{" "}
-                    <span className="brand-navy-blue">Dr. Prosper Benhaim</span>
+                    <span className="brand-navy-blue text-bold">
+                      XIAFLEX
+                      <sup className="reg_mark">&reg;</sup> Training and
+                      Certification with expert,
+                    </span>{" "}
+                    Dr. Prosper Benhaim
                   </span>
                 }
               />
               <div style={{ paddingLeft: "30px" }}>
                 <div>
-                  <span>Date:</span>{" "}
+                  <span className="text-bold">Date:</span>{" "}
                   <span className="brand-grey">Tuesday, April 13</span>
                 </div>
                 <div>
-                  <span>Time:</span>{" "}
-                  <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
+                  <span className="text-bold">Time:</span>{" "}
+                  <span className=" text-boldbrand-grey">
+                    8:00 PM – 9:30 PM EST
+                  </span>
                 </div>
               </div>
             </Col>
