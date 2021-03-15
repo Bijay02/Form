@@ -308,16 +308,15 @@ class RegisterForm extends Component {
                     <span className="brand-navy-blue text-bold">
                       XIAFLEX
                       <sup className="reg_mark">&reg;</sup> Training and
-                      Certification with expert,
-                    </span>{" "}
-                    Dr. Prosper Benhaim
+                      Certification with expert, Dr. Prosper Benhaim
+                    </span>
                   </span>
                 }
               />
               <div style={{ paddingLeft: "30px" }}>
                 <div>
                   <span className="text-bold">Date:</span>{" "}
-                  <span className="brand-grey">Tuesday, April 13</span>
+                  <span className="brand-grey">Tuesday, April 13, 2021</span>
                 </div>
                 <div>
                   <span className="text-bold">Time:</span>{" "}
