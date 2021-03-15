@@ -14,7 +14,7 @@ class Thankyou extends Component {
           <Col xs={12}>
             <Row start="xs" center="md">
               <Col xs={12}>
-                <h4 style={{ fontWeight: "normal" }}>
+                <h4 className="thank-you-title">
                   Thank you! Your registration is confirmed.
                 </h4>
               </Col>
@@ -41,17 +41,16 @@ class Thankyou extends Component {
                 <span className=" brand-navy-blue text-bold">
                   XIAFLEX
                   <sup className="reg_mark">®</sup> Training and Certification
-                  with expert,{" "}
-                </span>{" "}
-                Dr. Prosper Benhaim
+                  with expert, Dr. Prosper Benhaim
+                </span>
               </span>
               <div>
                 <span className="text-bold">Date:</span>{" "}
-                <span className="brand-grey">Tuesday, April 13</span>
+                <span className="brand-grey">Tuesday, April 13, 2021</span>
               </div>
               <div>
                 <span className="text-bold">Time:</span>{" "}
-                <span className="brand-grey">8:00 PM – 9:30 PM EST, 2021</span>
+                <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
               </div>
               <div className="padding-top padding-bottom">
                 <a class="add-to-calendar" href="calendar/invite.ics" download>
