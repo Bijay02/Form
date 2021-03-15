@@ -72,37 +72,55 @@ class RegisterForm extends Component {
     }
   }
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
+    /**
+     * send form data  with axios.get/post
+     */
+
+    const dataToSend = {
+      contactKey: this.state.email,
+      EventDefinitionKey: "",
+      data: {
+        // EndoUnsubscribe: this.state.endoUnsub, // this needs to be filled up
+        // XiaflexUnsubscribe: this.state.xiaflexUnsub,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        npi: this.state.npi,
+        city: this.state.city,
+        state: this.state.state,
+        prevCurrentFellowship: this.state.prevCurrentFellowship,
+        fellowshipProgram: this.state.fellowshipProgram,
+        session: this.state.session,
+      },
+    };
+    // UserType: this.props.hcp ? "HCP" : "CSR",
+
+    /** These two lines will be deleted */
     SourceEmitter.emit(`FormSubmitted`, true);
     return;
 
-    //send form data
-    //axios.get/post
-
-    const dataToSend = {
-      data: {
-        EndoUnsubscribe: this.state.endoUnsub,
-        XiaflexUnsubscribe: this.state.xiaflexUnsub,
-        EmailAddress: this.state.email,
-        UserType: this.props.hcp ? "HCP" : "CSR",
-      },
-    };
-
     //Submit form
-    axios
-      .post(DFA_API_SERVICES_URL, dataToSend)
-      .then((response) => {
-        this.setState({
-          email: "",
-          xiaflexUnsub: false,
-          endoUnsub: false,
-          FormError: false,
-        });
-        SourceEmitter.emit(`FormSubmitted`, true);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      // const res = await axios.post(DFA_API_SERVICES_URL, dataToSend);
+      SourceEmitter.emit(`FormSubmitted`, true);
+    } catch (e) {
+      console.log(e);
+    }
+    // axios
+    //   .post(DFA_API_SERVICES_URL, dataToSend)
+    //   .then((response) => {
+    //     this.setState({
+    //       email: "",
+    //       xiaflexUnsub: false,
+    //       endoUnsub: false,
+    //       FormError: false,
+    //     });
+    //     SourceEmitter.emit(`FormSubmitted`, true);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   render() {

@@ -5,7 +5,7 @@ import UsubForm from "../components/form";
 import RegisterForm from "../components/form";
 import SourceEmitter from "../lib/emitter";
 import "../components/form/form.scss";
-import { ThankYou } from "../components/thank-you";
+import Thankyou from "../components/thank-you";
 const metaTags = {
   description:
     "Xiaflex: Training and Certification with expert, Dr. Prosper Benhaim",
@@ -24,6 +24,7 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
+    window && window.scrollTo(0, 0);
     this.setResponseParams();
     Subscription_Form_Submit = SourceEmitter.addListener(
       "FormSubmitted",
@@ -71,7 +72,7 @@ class IndexPage extends Component {
         {!formCompleted && renderRegister()}
         <Row>
           <Col xs={12}>
-            {formCompleted && <ThankYou />}
+            {formCompleted && <Thankyou />}
             {!formCompleted && (
               <RegisterForm
                 email={email}
