@@ -44,7 +44,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --prefix-paths",
+    "build": "gatsby build --prefix-paths && cd public && mkdir -p hcp/20210413 && mv * hcp/20210413",
     "develop": "NODE_ENV=integration gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve --prefix-paths -o",
