@@ -35,6 +35,7 @@
     "react-helmet": "^5.2.0",
     "react-iscroll": "^2.0.3",
     "react-pose": "^4.0.3",
+    "react-recaptcha-v3": "^2.0.1",
     "react-responsive-carousel": "^3.1.43",
     "react-sticky-footer": "0.1.0-rc3"
   },
@@ -43,9 +44,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "task": "mkdir bkp_public && cd public && mv * ../bkp_public/ && mkdir -p hcp/20210413/ && cd ../bkp_public/ && mv * ../public/hcp/20210413/ && cd ../public/ && rm -rf ../bkp_public/",
+    "build": "gatsby build --prefix-paths && npm run task",
+    "develop": "NODE_ENV=integration gatsby develop",
     "start": "npm run develop",
+    "serve": "gatsby serve --prefix-paths -o",
+    "build:serve": "npm run build && npm run serve",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

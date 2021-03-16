@@ -6,6 +6,7 @@ import RegisterForm from "../components/form";
 import SourceEmitter from "../lib/emitter";
 import "../components/form/form.scss";
 import Thankyou from "../components/thank-you";
+
 const metaTags = {
   description:
     "Xiaflex: Training and Certification with expert, Dr. Prosper Benhaim",
