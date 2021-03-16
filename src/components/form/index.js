@@ -10,8 +10,12 @@ import {
 import axios from "axios";
 import SourceEmitter from "../../lib/emitter";
 import { Row, Col } from "react-flexbox-grid";
+import { loadReCaptcha, ReCaptcha } from "react-recaptcha-v3";
+import endpoint from "../helpers";
 
-const DFA_API_SERVICES_URL = process.env.DFA_API_SERVICES_URL;
+// const DFA_API_SERVICES_URL = process.env.DFA_API_SERVICES_URL;
+// console.log("DFA_API_SERVICES_URL", DFA_API_SERVICES_URL);
+const RECAPTCHA_SITE_KEY = "6LcaEIIaAAAAAOvSgY5AQiG-jUu-hM0sFohwDzzl";
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -25,9 +29,36 @@ class RegisterForm extends Component {
       prevCurrentFellowship: "",
       fellowshipProgram: null,
       session: false,
+      checkingReCaptchaForSubmit: false,
+      ReCaptchaToken: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
+  }
+
+  queryParams = {}; // Used for handling query parameters that are sent along with form data
+  parseParams = (param) => {
+    const query =
+      param &&
+      param
+        .split("&")
+        .map((p) => p.split("="))
+        .reduce((prev, cur) => {
+          prev[cur[0]] = cur[1];
+          return prev;
+        }, {});
+    let updatedQuery = {};
+    if (query && query.hasOwnProperty("emid")) {
+      updatedQuery = { ...query, EndoMdmId: query["emid"] };
+      delete updatedQuery["emid"];
+    }
+    this.queryParams = { ...updatedQuery };
+  };
+
+  componentDidMount() {
+    typeof window !== "undefined" &&
+      this.parseParams(window.location.search.substr(1)); // strip out question mark from the url
+    loadReCaptcha(RECAPTCHA_SITE_KEY, () => {});
   }
 
   validateEmail = (_email) => {
@@ -39,12 +70,20 @@ class RegisterForm extends Component {
   handleButtonDisable = () => {
     return (
       this.state.firstName &&
+      this.state.firstName.length <= 35 &&
       this.state.lastName &&
-      (this.state.email && this.validateEmail(this.state.email)) &&
+      this.state.lastName.length <= 35 &&
+      (this.state.email &&
+        this.validateEmail(this.state.email) &&
+        this.state.email.length <= 254) &&
       this.state.npi &&
+      this.state.npi.length <= 35 &&
       this.state.city &&
+      this.state.city.length <= 25 &&
       this.state.state &&
+      this.state.state.length <= 2 &&
       this.state.fellowshipProgram &&
+      this.state.fellowshipProgram.length <= 500 &&
       this.state.session
     );
   };
@@ -72,43 +111,53 @@ class RegisterForm extends Component {
     }
   }
 
+  verifyCallback = async (recaptchaToken) => {
+    if (this.state.checkingReCaptchaForSubmit) {
+      await this.setState({
+        checkingReCaptchaForSubmit: false,
+        ReCaptchaToken: recaptchaToken,
+      });
+      await this.handleSubmit();
+    }
+  };
+
+  updateRecaptchaToken = () => {
+    this.recaptcha.execute();
+  };
+
+  handleSubmitForCaptcha = async () => {
+    await this.setState({ checkingReCaptchaForSubmit: true });
+    this.updateRecaptchaToken();
+  };
+
   handleSubmit = async () => {
-    /**
-     * send form data  with axios.get/post
-     */
-
     const dataToSend = {
-      contactKey: this.state.email,
-      EventDefinitionKey: "",
-      data: {
-        // EndoUnsubscribe: this.state.endoUnsub, // this needs to be filled up
-        // XiaflexUnsubscribe: this.state.xiaflexUnsub,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        email: this.state.email,
-        npi: this.state.npi,
-        city: this.state.city,
-        state: this.state.state,
-        prevCurrentFellowship: this.state.prevCurrentFellowship,
-        fellowshipProgram: this.state.fellowshipProgram,
-        session: this.state.session,
-      },
+      // contactKey: this.state.email,
+      // EventDefinitionKey: "",
+      // data: {
+      FirstName: this.state.firstName,
+      LastName: this.state.lastName,
+      EmailAddress: this.state.email,
+      NPI: this.state.npi,
+      City: this.state.city,
+      State: this.state.state,
+      FellowshipName: this.state.prevCurrentFellowship,
+      CurrentlyEnrolled: this.state.fellowshipProgram,
+      Event: this.state.session,
+      ReCaptchaToken: this.state.ReCaptchaToken,
+      ...this.queryParams,
+      // },
     };
-    // UserType: this.props.hcp ? "HCP" : "CSR",
-
-    /** These two lines will be deleted */
-    SourceEmitter.emit(`FormSubmitted`, true);
-    return;
 
     //Submit form
     try {
-      // const res = await axios.post(DFA_API_SERVICES_URL, dataToSend);
+      const res = await axios.post(endpoint, dataToSend);
       SourceEmitter.emit(`FormSubmitted`, true);
     } catch (e) {
       console.log(e);
     }
     // axios
-    //   .post(DFA_API_SERVICES_URL, dataToSend)
+    //   .post(endpoint, dataToSend)
     //   .then((response) => {
     //     this.setState({
     //       email: "",
@@ -276,12 +325,12 @@ class RegisterForm extends Component {
       >
         <Radio
           label="Yes:"
-          value="yes"
+          value="Yes"
           className="bp3-align-right bp3-large radio-label-container"
         />
         <Radio
           label="No:"
-          value="no"
+          value="No"
           className="bp3-align-right bp3-large radio-label-container"
         />
       </RadioGroup>
@@ -346,7 +395,7 @@ class RegisterForm extends Component {
           <Col xs={12}>
             <button
               type="button"
-              onClick={this.handleSubmit}
+              onClick={this.handleSubmitForCaptcha}
               className={`btn-submit-registration ${
                 !this.handleButtonDisable() ? "disabled" : ""
               }`}
@@ -354,6 +403,11 @@ class RegisterForm extends Component {
             >
               SUBMIT
             </button>
+            <ReCaptcha
+              ref={(ref) => (this.recaptcha = ref)}
+              sitekey={RECAPTCHA_SITE_KEY}
+              verifyCallback={this.verifyCallback}
+            />
           </Col>
         </Row>
       </div>

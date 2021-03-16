@@ -5,7 +5,7 @@ import "./index.scss";
 /** Thank You Component */
 class Thankyou extends Component {
   componentDidMount() {
-    window && window.scrollTo(0, 0);
+    typeof window !== "undefined" && window.scrollTo(0, 0);
   }
   render() {
     return (
