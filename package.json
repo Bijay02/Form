@@ -47,6 +47,7 @@
     "build": "gatsby build --prefix-paths",
     "develop": "NODE_ENV=integration gatsby develop",
     "start": "npm run develop",
+    "build:serve": "npm run build && gatsby serve --prefix-paths",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
