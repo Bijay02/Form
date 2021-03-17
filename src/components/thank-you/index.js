@@ -52,7 +52,7 @@ class Thankyou extends Component {
                 <span className="text-bold">Time:</span>{" "}
                 <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
               </div>
-              <div className="padding-top padding-bottom">
+              <div className="padding-top">
                 <a class="add-to-calendar" href="calendar/invite.ics" download>
                   ADD TO CALENDAR
                 </a>
