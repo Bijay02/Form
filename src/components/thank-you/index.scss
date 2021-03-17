@@ -5,14 +5,7 @@
   color: #fff;
   font-weight: bold;
   border-radius: 0px;
-}
-
-.react-add-to-calendar__button {
-  @extend .btn-add-to-calendar;
-  &:hover {
-    @extend .btn-add-to-calendar;
-    text-decoration: none;
-  }
+  font-size: 20px;
 }
 
 .thank-you-title {

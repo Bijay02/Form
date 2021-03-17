@@ -15,7 +15,7 @@
 
 .radio-label-container {
   box-sizing: border-box;
-  width: 65px;
+  width: 60px;
   font-size: 14px !important;
 }
 
@@ -90,6 +90,7 @@
   padding: $base-padding;
   font-weight: bold;
   margin-top: 12px;
+  font-size: 20px;
   &.disabled {
     opacity: 0.5;
   }
@@ -98,6 +99,7 @@
 .add-to-calendar {
   @extend .bkg-brand-orange-container;
   font-weight: bold;
+  font-size: 20px;
   padding: $base-padding;
   &:hover {
     text-decoration: none;

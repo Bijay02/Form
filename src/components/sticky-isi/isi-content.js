@@ -90,10 +90,11 @@ const ISIContent = (props) => (
         </li>
         <li>
           In the XIAFLEX<sup className="reg_mark">&reg;</sup> trials in
-          Dupuytren’s contracture, 70% and 38% of XIAFLEX®-treated patients
-          developed an ecchymosis/contusion or an injection site hemorrhage,
-          respectively. Patients with abnormal coagulation (except for patients
-          taking low-dose aspirin, eg, up to 150 mg per day) were excluded from
+          Dupuytren’s contracture, 70% and 38% of XIAFLEX
+          <sup className="reg_mark">&reg;</sup>-treated patients developed an
+          ecchymosis/contusion or an injection site hemorrhage, respectively.
+          Patients with abnormal coagulation (except for patients taking
+          low-dose aspirin, eg, up to 150 mg per day) were excluded from
           participating in these studies. Therefore, the efficacy and safety of
           XIAFLEX<sup className="reg_mark">&reg;</sup> in patients receiving
           anticoagulant medications (other than low-dose aspirin, eg, up to 150
@@ -125,6 +126,7 @@ const ISIContent = (props) => (
         </a>
         , including{" "}
         <a
+          target="_blank"
           class="isi-text-link brand-orange"
           href="https://endodocuments.com/xiaflex/mg"
         >
