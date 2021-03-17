@@ -1,11 +1,11 @@
 @import "../../scss/configs";
 .isi-wrapper {
   font-family: Arial, $helvi;
-  @include font-size(12.5);
+  // @include font-size(12.5);
+  font-size: 14px;
   line-height: 1.2;
   a {
     font-weight: bold;
-    color: $brand-grey;
     text-decoration: underline;
   }
   .isi-content {
@@ -17,6 +17,9 @@
     }
     .normal {
       font-weight: normal;
+    }
+    .full_isi_text {
+      color: $brand-grey;
     }
 
     h6 {
@@ -40,7 +43,7 @@
         text-transform: uppercase;
         color: #002e5d;
         font-size: 20px;
-        font-weight: 400;
+        font-weight: bold;
         margin-bottom: 5px;
       }
       &.brand-orange {
@@ -58,6 +61,7 @@
         text-indent: -0.7em;
         padding-bottom: 0.5rem;
         margin-bottom: 0;
+        color: $brand-grey;
         &::before {
           content: "• ";
           color: #eb5903;
