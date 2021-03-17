@@ -16,7 +16,7 @@ const ISIContent = (props) => (
       )} */}
       <a name="ISI_ANCHOR" />
       <p className="isi_head brand-orange">INDICATION</p>
-      <p>
+      <p className="full_isi_text">
         XIAFLEX<sup className="reg_mark">&reg;</sup> is indicated for the
         treatment of adult patients with Dupuytren’s contracture with a palpable
         cord.
@@ -72,8 +72,9 @@ const ISIContent = (props) => (
           contracture, a greater proportion of XIAFLEX
           <sup className="reg_mark">&reg;</sup>-treated patients (15%) compared
           to placebo-treated patients (1%) had mild allergic reactions
-          (pruritus) after up to 3 injections. The incidence of
-          XIAFLEX®-associated pruritus increased after more XIAFLEX
+          (pruritus) after up to 3 injections. The incidence of XIAFLEX
+          <sup className="reg_mark">&reg;</sup>-associated pruritus increased
+          after more XIAFLEX
           <sup className="reg_mark">&reg;</sup> injections in patients with
           Dupuytren’s contracture
         </li>
@@ -82,9 +83,9 @@ const ISIContent = (props) => (
           proteins, severe allergic reactions to XIAFLEX
           <sup className="reg_mark">&reg;</sup> can occur. Anaphylaxis was
           reported in a post-marketing clinical study in one patient who had
-          previous exposure to XIAFLEX® for the treatment of Dupuytren’s
-          contracture. Healthcare providers should be prepared to address severe
-          allergic reactions following XIAFLEX
+          previous exposure to XIAFLEX<sup className="reg_mark">&reg;</sup> for
+          the treatment of Dupuytren’s contracture. Healthcare providers should
+          be prepared to address severe allergic reactions following XIAFLEX
           <sup className="reg_mark">&reg;</sup> injections
         </li>
         <li>
@@ -116,14 +117,17 @@ const ISIContent = (props) => (
       <p className="strong full_isi_text">
         Please see the full{" "}
         <a
-          class="isi-text-link"
+          class="isi-text-link brand-orange"
           href="https://endodocuments.com/xiaflex/pi"
           target="_blank"
         >
           Prescribing Information
         </a>
         , including{" "}
-        <a class="isi-text-link" href="https://endodocuments.com/xiaflex/mg">
+        <a
+          class="isi-text-link brand-orange"
+          href="https://endodocuments.com/xiaflex/mg"
+        >
           Medication Guide
         </a>
         .

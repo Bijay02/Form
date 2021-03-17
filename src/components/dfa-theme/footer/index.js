@@ -83,22 +83,13 @@ const Footer = () => (
               <br className="show-in-mobile" />
               Endo International plc or one of its affiliates.
               <br />
-              &copy; {copyrightYear()} Endo Pharmaceuticals Inc.{" "}
+              &copy; {copyrightYear()} Endo Pharmaceuticals Inc.&nbsp;&nbsp;
               <br className="show-in-mobile" />
-              All rights reserved. Malvern, PA 19355
+              All rights reserved.&nbsp;&nbsp;Malvern, PA 19355
               <br />
-              {/* <a
-                href="http://www.endo.com/privacy-legal"
-                target="_blank"
-                className="text-blue"
-              >
-                Privacy/Legal
-              </a>{" "} */}
-              <strong>XD-06097/March 2021 </strong>
+              <strong>XD-06097/March 2021&nbsp;&nbsp;</strong>
               <br className="show-in-mobile" />
-              {/* <a href="https://www.xiaflex.com" className="text-blue"> */}
-              www.xiaflex.com
-              {/* </a> */} 1-800-462-ENDO (3636)
+              www.xiaflex.com&nbsp;&nbsp;1-800-462-ENDO (3636)
             </p>
           </Col>
         </Row>
