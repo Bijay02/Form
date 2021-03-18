@@ -11,11 +11,12 @@ import axios from "axios";
 import SourceEmitter from "../../lib/emitter";
 import { Row, Col } from "react-flexbox-grid";
 import { loadReCaptcha, ReCaptcha } from "react-recaptcha-v3";
-import endpoint from "../helpers";
+import endpoint, { whichSite } from "../helpers";
 
-// const DFA_API_SERVICES_URL = process.env.DFA_API_SERVICES_URL;
-// console.log("DFA_API_SERVICES_URL", DFA_API_SERVICES_URL);
-const RECAPTCHA_SITE_KEY = "6LcaEIIaAAAAAOvSgY5AQiG-jUu-hM0sFohwDzzl";
+const RECAPTCHA_SITE_KEY =
+  whichSite() === "integration"
+    ? "6LcaEIIaAAAAAOvSgY5AQiG-jUu-hM0sFohwDzzl"
+    : "6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY";
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -47,11 +48,38 @@ class RegisterForm extends Component {
           prev[cur[0]] = cur[1];
           return prev;
         }, {});
-    let updatedQuery = {};
+    let updatedQuery = { ...query };
     if (query && query.hasOwnProperty("emid")) {
-      updatedQuery = { ...query, EndoMdmId: query["emid"] };
+      updatedQuery = { ...updatedQuery, EndoMdmId: updatedQuery["emid"] };
       delete updatedQuery["emid"];
+    } else {
+      updatedQuery = { ...updatedQuery, EndoMdmId: "" };
     }
+    if (updatedQuery && updatedQuery.hasOwnProperty("JobId")) {
+      updatedQuery = { ...updatedQuery, jid: updatedQuery["JobId"] };
+      delete updatedQuery["JobId"];
+    } else {
+      updatedQuery = { ...updatedQuery, jid: "" };
+    }
+    if (updatedQuery && updatedQuery.hasOwnProperty("SubscriberId")) {
+      updatedQuery = { ...updatedQuery, sid: updatedQuery["SubscriberId"] };
+      delete updatedQuery["SubscriberId"];
+    } else {
+      updatedQuery = { ...updatedQuery, sid: "" };
+    }
+    if (updatedQuery && updatedQuery.hasOwnProperty("CampaignId")) {
+      updatedQuery = { ...updatedQuery, cid: updatedQuery["CampaignId"] };
+      delete updatedQuery["CampaignId"];
+    } else {
+      updatedQuery = { ...updatedQuery, cid: "" };
+    }
+    if (updatedQuery && updatedQuery.hasOwnProperty("TacticId")) {
+      updatedQuery = { ...updatedQuery, tid: updatedQuery["TacticId"] };
+      delete updatedQuery["TacticId"];
+    } else {
+      updatedQuery = { ...updatedQuery, tid: "" };
+    }
+
     this.queryParams = { ...updatedQuery };
   };
 
@@ -143,11 +171,12 @@ class RegisterForm extends Component {
       State: this.state.state,
       FellowshipName: this.state.prevCurrentFellowship,
       CurrentlyEnrolled: this.state.fellowshipProgram,
-      Event: this.state.session,
+      Event:
+        "XIAFLEX Training and Certification with expert, Dr. Prosper Bemhaim",
       ReCaptchaToken: this.state.ReCaptchaToken,
       ...this.queryParams,
-      // },
     };
+    // },
 
     //Submit form
     try {
