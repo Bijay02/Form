@@ -23,4 +23,17 @@ if (hostName) {
   }
 }
 
+export const whichSite = () => {
+  if (hostName) {
+    if (
+      hostName.indexOf("localhost") !== -1 ||
+      hostName.indexOf("netlify.app") !== -1
+    ) {
+      return "integration";
+    } else {
+      return "non-integration";
+    }
+  }
+};
+
 export default endpoint;
