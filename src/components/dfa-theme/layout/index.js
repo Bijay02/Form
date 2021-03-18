@@ -48,10 +48,6 @@ class Layout extends Component {
     path: false,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   //Toggle mobile/offcanvas menu
   toggleMenu = () => {
     this.setState((prevState) => ({
@@ -59,20 +55,16 @@ class Layout extends Component {
     }));
   };
 
-  resize = () => {
-    console.log("fired");
-
-    this.setState({
+  resize = async () => {
+    await this.setState({
       headerHeight: this.headerRef.clientHeight,
+      footerHeight: this.footerRef.clientHeight,
     });
 
     /**
      * If ISI is not needed remove the following state (footerHeight).
      * Also remove 'StickyISI' component call in this page.
      */
-    this.setState({
-      footerHeight: this.footerRef.clientHeight,
-    });
   };
 
   //Close the Interstitial
@@ -82,11 +74,9 @@ class Layout extends Component {
     });
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     //Trigger resize on component load
-    setTimeout(() => {
-      this.resize();
-    }, 50);
+    await this.resize();
 
     const path = window.location.pathname;
 
@@ -179,10 +169,7 @@ class Layout extends Component {
               </button> */}
               {/*Body starts here*/}
               <div className="base-container">
-                <div
-                  className="base-body"
-                  style={{ paddingTop: this.state.headerHeight + 16 }}
-                >
+                <div className="base-body">
                   <Grid fluid className="ie-width">
                     {this.props.children}
                   </Grid>
