@@ -101,9 +101,9 @@ class RegisterForm extends Component {
       this.state.firstName.length <= 35 &&
       this.state.lastName &&
       this.state.lastName.length <= 35 &&
-      (this.state.email &&
-        this.validateEmail(this.state.email) &&
-        this.state.email.length <= 254) &&
+      this.state.email &&
+      this.validateEmail(this.state.email) &&
+      this.state.email.length <= 254 &&
       this.state.npi &&
       this.state.npi.length <= 35 &&
       this.state.city &&
@@ -171,8 +171,7 @@ class RegisterForm extends Component {
       State: this.state.state,
       FellowshipName: this.state.prevCurrentFellowship,
       CurrentlyEnrolled: this.state.fellowshipProgram,
-      Event:
-        "XIAFLEX Training and Certification with expert, Dr. Prosper Bemhaim",
+      Event: "HCP_AAHS20210413",
       ReCaptchaToken: this.state.ReCaptchaToken,
       ...this.queryParams,
     };
