@@ -314,6 +314,7 @@ class RegisterForm extends Component {
             <InputGroup
               id="text-state"
               large
+              maxLength={2}
               onChange={this.handleChange}
               name="state"
               value={state} // intent={this.checkValidation("state")}
