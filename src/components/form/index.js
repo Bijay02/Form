@@ -384,9 +384,7 @@ class RegisterForm extends Component {
                 labelElement={
                   <span>
                     <span className="brand-navy-blue text-bold">
-                      XIAFLEX
-                      <sup className="reg_mark">&reg;</sup> Training and
-                      Certification with expert, Dr. Prosper Benhaim
+                      Learn about a nonsurgical treatment option and review case studies with Dupuytren’s contracture expert, <nobr>Dr. Glenn Gaston</nobr>
                     </span>
                   </span>
                 }
@@ -394,12 +392,12 @@ class RegisterForm extends Component {
               <div style={{ paddingLeft: "30px" }}>
                 <div>
                   <span className="text-bold">Date:</span>{" "}
-                  <span className="brand-grey">Tuesday, April 13, 2021</span>
+                  <span className="brand-grey">Tuesday, October 19, 2021</span>
                 </div>
                 <div>
                   <span className="text-bold">Time:</span>{" "}
                   <span className=" text-boldbrand-grey">
-                    8:00 PM – 9:30 PM EST
+                  8:00 PM EST
                   </span>
                 </div>
               </div>

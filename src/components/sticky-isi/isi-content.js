@@ -44,7 +44,7 @@ const ISIContent = (props) => (
           damage to those structures and possible permanent injury such as
           tendon rupture or ligament damage. Therefore, XIAFLEX
           <sup className="reg_mark">&reg;</sup> should be injected only into the
-          collagen cord with a MP or PIP joint contracture, and care should be
+          collagen cord with a metacarpophalangeal (MP) or proximal interphalangeal (PIP) joint contracture, and care should be
           taken to avoid injecting into tendons, nerves, blood vessels, or other
           collagen-containing structures of the hand. When injecting a cord
           affecting a PIP joint of the fifth finger, the needle insertion should
@@ -54,16 +54,14 @@ const ISIContent = (props) => (
         <li>
           Other XIAFLEX<sup className="reg_mark">&reg;</sup>-associated serious
           local adverse reactions in the controlled and uncontrolled portions of
-          the studies included pulley rupture, ligament injury, complex regional
+          the clinical studies included pulley rupture, ligament injury, complex regional
           pain syndrome (CRPS), sensory abnormality of the hand, and skin
           laceration (tear). In a historically controlled post-marketing trial,
           the incidence of skin laceration (22%) was higher for subjects treated
           with two concurrent injections of XIAFLEX
           <sup className="reg_mark">&reg;</sup> compared with subjects treated
           with up to three single injections in the placebo-controlled
-          premarketing trials (9%). Cases of skin laceration requiring skin
-          graft after finger extension procedures have been reported
-          post-­marketing. Signs or symptoms that may reflect serious injury to
+          premarketing trials (9%). Postmarketing cases of skin laceration requiring skin graft after finger extension procedures and local skin and soft-tissue necrosis, some requiring skin grafting, or other surgical interventions including finger amputation have been reported. Signs or symptoms that may reflect serious injury to
           the injected finger/hand should be promptly evaluated because surgical
           intervention may be required
         </li>
@@ -82,7 +80,7 @@ const ISIContent = (props) => (
           Because XIAFLEX<sup className="reg_mark">&reg;</sup> contains foreign
           proteins, severe allergic reactions to XIAFLEX
           <sup className="reg_mark">&reg;</sup> can occur. Anaphylaxis was
-          reported in a post-marketing clinical study in one patient who had
+          reported in a post-marketing clinical trial in one patient who had
           previous exposure to XIAFLEX<sup className="reg_mark">&reg;</sup> for
           the treatment of Dupuytren’s contracture. Healthcare providers should
           be prepared to address severe allergic reactions following XIAFLEX

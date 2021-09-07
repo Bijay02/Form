@@ -87,7 +87,7 @@ const Footer = () => (
               <br className="show-in-mobile" />
               All rights reserved.&nbsp;&nbsp;Malvern, PA 19355
               <br />
-              <strong>XD-06097/March 2021&nbsp;&nbsp;</strong>
+              <strong>XD-06247/September 2021&nbsp;&nbsp;</strong>
               <br className="show-in-mobile" />
               www.xiaflex.com&nbsp;&nbsp;1-800-462-ENDO (3636)
             </p>
