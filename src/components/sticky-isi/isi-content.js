@@ -119,7 +119,7 @@ const ISIContent = (props) => (
         >
           Prescribing Information
         </a>
-        and{" "}
+        {" "}and{" "}
         <a
           target="_blank"
           class="isi-text-link brand-orange"
