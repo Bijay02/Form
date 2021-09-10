@@ -67,11 +67,9 @@ const ISIContent = (props) => (
         </li>
         <li>
           In the controlled portions of the clinical trials in Dupuytren’s
-          contracture, a greater proportion of XIAFLEX
-          -treated patients (15%) compared
+          contracture, a greater proportion of XIAFLEX-treated patients (15%) compared
           to placebo-treated patients (1%) had mild allergic reactions
-          (pruritus) after up to 3 injections. The incidence of XIAFLEX
-          -associated pruritus increased
+          (pruritus) after up to 3 injections. The incidence of XIAFLEX-associated pruritus increased
           after more XIAFLEX
            injections in patients with
           Dupuytren’s contracture
@@ -88,8 +86,7 @@ const ISIContent = (props) => (
         </li>
         <li>
           In the XIAFLEX trials in
-          Dupuytren’s contracture, 70% and 38% of XIAFLEX
-          -treated patients developed an
+          Dupuytren’s contracture, 70% and 38% of XIAFLEX-treated patients developed an
           ecchymosis/contusion or an injection site hemorrhage, respectively.
           Patients with abnormal coagulation (except for patients taking
           low-dose aspirin, eg, up to 150 mg per day) were excluded from
@@ -114,7 +111,7 @@ const ISIContent = (props) => (
         </li>
       </ul>
       <p className="strong full_isi_text">
-        Please see the full{" "}
+      Click for full{" "}
         <a
           class="isi-text-link brand-orange"
           href="https://endodocuments.com/xiaflex/pi"
@@ -122,7 +119,7 @@ const ISIContent = (props) => (
         >
           Prescribing Information
         </a>
-        , including{" "}
+        and{" "}
         <a
           target="_blank"
           class="isi-text-link brand-orange"
