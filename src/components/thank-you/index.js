@@ -39,9 +39,7 @@ class Thankyou extends Component {
             <Col xs={12}>
               <span>
                 <span className=" brand-navy-blue text-bold">
-                  XIAFLEX
-                  <sup className="reg_mark">®</sup> Training and Certification
-                  with expert, Dr. Prosper Benhaim
+                Learn about a nonsurgical treatment option and review case studies with Dupuytren’s contracture expert, Dr. Glenn Gaston
                 </span>
               </span>
               <div>

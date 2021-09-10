@@ -123,7 +123,7 @@ const ISIContent = (props) => (
         <a
           target="_blank"
           class="isi-text-link brand-orange"
-          href="https://endodocuments.com/xiaflex/mg"
+          href="https://www.endodocuments.com/XIAFLEX_DC/MG"
         >
           Medication Guide
         </a>
