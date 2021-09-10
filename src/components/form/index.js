@@ -171,7 +171,7 @@ class RegisterForm extends Component {
       State: this.state.state,
       FellowshipName: this.state.prevCurrentFellowship,
       CurrentlyEnrolled: this.state.fellowshipProgram,
-      Event: "HCP_AAHS20210413",
+      Event: "HCP_20211019",
       ReCaptchaToken: this.state.ReCaptchaToken,
       ...this.queryParams,
     };

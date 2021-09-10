@@ -46,11 +46,11 @@ class Thankyou extends Component {
               </span>
               <div>
                 <span className="text-bold">Date:</span>{" "}
-                <span className="brand-grey">Tuesday, April 13, 2021</span>
+                <span className="brand-grey">Tuesday, October 19, 2021</span>
               </div>
               <div>
                 <span className="text-bold">Time:</span>{" "}
-                <span className="brand-grey">8:00 PM – 9:30 PM EST</span>
+                <span className="brand-grey">8:00 PM EST</span>
               </div>
               <div className="padding-top">
                 <a class="add-to-calendar" href="calendar/invite.ics" download>
