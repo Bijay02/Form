@@ -32,6 +32,7 @@ class RegisterForm extends Component {
       session: false,
       checkingReCaptchaForSubmit: false,
       ReCaptchaToken: "",
+      isLoading: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateEmail = this.validateEmail.bind(this);
@@ -112,7 +113,8 @@ class RegisterForm extends Component {
       this.state.state.length <= 2 &&
       this.state.fellowshipProgram &&
       this.state.fellowshipProgram.length <= 500 &&
-      this.state.session
+      this.state.session &&
+      !this.state.isLoading
     );
   };
 
@@ -179,8 +181,10 @@ class RegisterForm extends Component {
 
     //Submit form
     try {
+      await this.setState({isLoading: true});
       const res = await axios.post(endpoint, dataToSend);
       SourceEmitter.emit(`FormSubmitted`, true);
+      await this.setState({isLoading: false});
     } catch (e) {
       console.log(e);
     }
