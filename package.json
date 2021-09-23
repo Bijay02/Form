@@ -46,7 +46,7 @@
   "scripts": {
     "task": "mkdir bkp_public && cd public && mv * ../bkp_public/ && mkdir -p hcp/20211019/ && cd ../bkp_public/ && mv * ../public/hcp/20211019/ && cd ../public/ && rm -rf ../bkp_public/",
     "build": "gatsby build --prefix-paths && npm run task",
-    "buildendo": "gatsby build --prefix-paths && npm run task",
+    "buildendo": "gatsby build --prefix-paths",
     "develop": "NODE_ENV=integration gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve --prefix-paths -o",
