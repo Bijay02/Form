@@ -4,28 +4,26 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+  - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-latest"
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
-  displayName: 'Intall Node.js'
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "10.x"
+    displayName: "Intall Node.js"
 
-- script: npm install
-  displayName: 'npm install'
+  - script: npm install
+    displayName: "npm install"
 
-- script: npm run buildendo
-  displayName: 'npm run buildendo'
+  - script: npm run buildendo
+    displayName: "npm run buildendo"
 
-- script: cp web.config public/
-  displayName: 'copy web config'
+  - script: cp web.config public/
+    displayName: "copy web config"
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/public'
-
-
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(System.DefaultWorkingDirectory)/public"
