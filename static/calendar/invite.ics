@@ -23,17 +23,12 @@ RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTAMP:20210922T122105Z
-UID:20210922T122105Z-966368355@marudot.com
+DTSTAMP:20210922T192812Z
+UID:20210922T192812Z-784285446@marudot.com
 DTSTART;TZID=America/New_York:20211019T200000
-DTEND;TZID=America/New_York:20211019T210000
-SUMMARY:Dupuytrens Contracture Expert
-DESCRIPTION:You are invited to a Zoom webinar.\n\nWhen: Oct 19\, 2021 08:00 PM Eastern Time (US and Canada)\nTopic: Dupuytrens Contracture Expert\n\nPlease click the link below to join the webinar:\nhttps://mc3.zoom.us/j/95869696383?pwd=aDM1OVlMdjRlUE1iaGJ1N050NXNhdz09\n\nPasscode: 502101\n\nOr One tap mobile:\nUS: +13017158592\,\,95869696383# or +13126266799\,\,95869696383#\n\nOr Telephone:\nDial(for higher quality\, dial a number based on your current location):\n\nUS: +1 301 715 8592 or +1 312 626 6799 or +1 646 876 9923 or +1 346 248 7799 or +1 408 638 0968 or +1 669 900 6833 or +1 253 215 8782\n\nWebinar ID: 958 6969 6383\n\nInternational numbers available: https://mc3.zoom.us/u/aeHXsaFPI0
+DTEND;TZID=America/New_York:20211019T213000
+SUMMARY:Learn about a nonsurgical treatment option and review case studies with Dupuytren’s contracture expert\, Dr. Glenn Gaston
+DESCRIPTION:You are invited to a Zoom webinar.\n\nWhen: Oct 19\, 2021 08:00 PM Eastern Time (US and Canada)\nTopic: Learn about a nonsurgical treatment option and review case studies with Dupuytren’s contracture expert\, Dr. Glenn Gaston\n\nPlease click the link below to join the webinar:\nhttps://mc3.zoom.us/j/95869696383?pwd=aDM1OVlMdjRlUE1iaGJ1N050NXNhdz09\n\nPasscode: 502101\n\nOr One tap mobile:\nUS: +13017158592\,\,95869696383# or +13126266799\,\,95869696383#\n\nOr Telephone:\nDial(for higher quality\, dial a number based on your current location):\n\nUS: +1 301 715 8592 or +1 312 626 6799 or +1 646 876 9923 or +1 346 248 7799 or +1 408 638 0968 or +1 669 900 6833 or +1 253 215 8782\n\nWebinar ID: 958 6969 6383\n\nInternational numbers available: https://mc3.zoom.us/u/aeHXsaFPI0
 LOCATION:https://mc3.zoom.us/j/95869696383?pwd=aDM1OVlMdjRlUE1iaGJ1N050NXNhdz09
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Dupuytrens Contracture Expert
-TRIGGER:-PT15M
-END:VALARM
 END:VEVENT
 END:VCALENDAR
