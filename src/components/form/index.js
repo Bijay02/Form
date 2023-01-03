@@ -103,7 +103,6 @@ class RegisterForm extends Component {
 			this.state.question2 &&
 			this.state.question2.length <= 254 &&
 			this.state.question3 &&
-			//this.validateEmail(this.state.question3) &&
 			this.state.question3.length <= 254 &&
 			this.state.question4 &&
 			this.state.question4.length <= 254 &&
@@ -131,15 +130,15 @@ class RegisterForm extends Component {
 		}
 	};
 
-	static getDerivedStateFromProps(nextProps, prevState) {
-		if (nextProps.question3 !== prevState.question3 && !prevState.question3) {
-			return {
-				question3: nextProps.question3,
-			};
-		} else {
-			return null;
-		}
-	}
+	// static getDerivedStateFromProps(nextProps, prevState) {
+	// 	if (nextProps.question3 !== prevState.question3 && !prevState.question3) {
+	// 		return {
+	// 			question3: nextProps.question3,
+	// 		};
+	// 	} else {
+	// 		return null;
+	// 	}
+	// }
 
 	verifyCallback = async (recaptchaToken) => {
 		if (this.state.checkingReCaptchaForSubmit) {
@@ -179,6 +178,8 @@ class RegisterForm extends Component {
 			...this.queryParams,
 		};
 		// },
+
+		console.log('api stuff');
 
 		//Submit form
 		try {
@@ -293,7 +294,7 @@ class RegisterForm extends Component {
 						id='form-question-4'
 					>
 						<InputGroup
-							id='text-renderQuestion4'
+							id='text-question-4'
 							large
 							onChange={this.handleChange}
 							name='question4'
