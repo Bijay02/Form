@@ -100,7 +100,7 @@ const ISIContent = (props) => (
 			<p className='strong full_isi_text'>
 				Click for full{' '}
 				<a
-					class='isi-text-link brand-orange'
+					className='isi-text-link brand-orange'
 					href='https://endodocuments.com/xiaflex/pi'
 					target='_blank'
 				>
@@ -109,7 +109,7 @@ const ISIContent = (props) => (
 				and{' '}
 				<a
 					target='_blank'
-					class='isi-text-link brand-orange'
+					className='isi-text-link brand-orange'
 					href='https://www.endodocuments.com/XIAFLEX_DC/MG'
 				>
 					Medication Guide
