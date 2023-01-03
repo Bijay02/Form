@@ -13,8 +13,9 @@ import { Row, Col } from 'react-flexbox-grid';
 import { loadReCaptcha, ReCaptcha } from 'react-recaptcha-v3';
 import endpoint, { whichSite } from '../helpers';
 
+// integration or  development
 const RECAPTCHA_SITE_KEY =
-	whichSite() === 'integration'
+	whichSite() === 'development'
 		? '6LcaEIIaAAAAAOvSgY5AQiG-jUu-hM0sFohwDzzl'
 		: '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY';
 class RegisterForm extends Component {
@@ -82,11 +83,14 @@ class RegisterForm extends Component {
 		}
 
 		this.queryParams = { ...updatedQuery };
+		console.log(this.queryParams);
 	};
 
 	componentDidMount() {
 		typeof window !== 'undefined' &&
-			this.parseParams(window.location.search.substr(1)); // strip out question mark from the url
+			this.parseParams(
+				window.location.search.substr(1, window.location.search.length)
+			); // strip out question mark from the url
 		loadReCaptcha(RECAPTCHA_SITE_KEY, () => {});
 	}
 
@@ -97,24 +101,26 @@ class RegisterForm extends Component {
 	};
 
 	handleButtonDisable = () => {
-		return (
+		let disabled =
 			this.state.question1 &&
-			this.state.question1.length <= 254 &&
+			this.state.question1.length >= 1 &&
 			this.state.question2 &&
-			this.state.question2.length <= 254 &&
+			this.state.question2.length >= 1 &&
 			this.state.question3 &&
-			this.state.question3.length <= 254 &&
+			this.state.question3.length >= 1 &&
 			this.state.question4 &&
-			this.state.question4.length <= 254 &&
+			this.state.question4.length >= 1 &&
 			this.state.question5 &&
-			this.state.question5.length <= 254 &&
+			this.state.question5.length >= 1 &&
 			this.state.question6 &&
-			this.state.question6.length <= 254 &&
-			// this.state.fellowshipProgram &&
-			// this.state.fellowshipProgram.length <= 500 &&
-			this.state.session &&
-			!this.state.isLoading
-		);
+			this.state.question6.length >= 1 &&
+			!this.state.isLoading;
+
+		// // this.state.fellowshipProgram &&
+		// // this.state.fellowshipProgram.length <= 500 &&
+		// this.state.session &&
+		// !this.state.isLoading;
+		return disabled;
 	};
 
 	handleChange = async (event) => {
@@ -179,8 +185,6 @@ class RegisterForm extends Component {
 		};
 		// },
 
-		console.log('api stuff');
-
 		//Submit form
 		try {
 			await this.setState({ isLoading: true });
@@ -214,9 +218,9 @@ class RegisterForm extends Component {
 			question4,
 			question5,
 			question6,
-			//xiaflexUnsub,
-			//endoUnsub,
-			//email_Error,
+			xiaflexUnsub,
+			endoUnsub,
+			email_Error,
 
 			//fellowshipProgram,
 			//prevCurrentFellowship,
