@@ -103,17 +103,17 @@ class RegisterForm extends Component {
 	handleButtonDisable = () => {
 		let disabled =
 			this.state.question1 &&
-			//this.state.question1.length <= 500 &&
+			this.state.question1.length >= 1 &&
 			this.state.question2 &&
-			//this.state.question2.length <= 500 &&
+			this.state.question2.length >= 1 &&
 			this.state.question3 &&
-			//this.state.question3.length <= 500 &&
+			this.state.question3.length >= 1 &&
 			this.state.question4 &&
-			//this.state.question4.length <= 500 &&
+			this.state.question4.length >= 1 &&
 			this.state.question5 &&
-			//this.state.question5.length <= 500 &&
+			this.state.question5.length >= 1 &&
 			this.state.question6 &&
-			//this.state.question6.length <= 500 &&
+			this.state.question6.length >= 1 &&
 			!this.state.isLoading;
 
 		// // this.state.fellowshipProgram &&
