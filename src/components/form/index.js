@@ -116,10 +116,6 @@ class RegisterForm extends Component {
 			this.state.question6.length >= 1 &&
 			!this.state.isLoading;
 
-		// // this.state.fellowshipProgram &&
-		// // this.state.fellowshipProgram.length <= 500 &&
-		// this.state.session &&
-		// !this.state.isLoading;
 		return disabled;
 	};
 
@@ -135,16 +131,6 @@ class RegisterForm extends Component {
 			});
 		}
 	};
-
-	// static getDerivedStateFromProps(nextProps, prevState) {
-	// 	if (nextProps.question3 !== prevState.question3 && !prevState.question3) {
-	// 		return {
-	// 			question3: nextProps.question3,
-	// 		};
-	// 	} else {
-	// 		return null;
-	// 	}
-	// }
 
 	verifyCallback = async (recaptchaToken) => {
 		if (this.state.checkingReCaptchaForSubmit) {
@@ -353,90 +339,6 @@ class RegisterForm extends Component {
 			</Row>
 		);
 
-		// const renderPrevCurrentFellowShip = () => (
-		// 	<Row>
-		// 		<Col xs={12} md={8}>
-		// 			<FormGroup
-		// 				helperText=''
-		// 				label='Name of previous or current Hand Fellowship, if applicable:'
-		// 				labelFor='text-prev-current-fellowship'
-		// 			>
-		// 				<InputGroup
-		// 					id='text-prev-current-fellowship'
-		// 					large
-		// 					onChange={this.handleChange}
-		// 					name='prevCurrentFellowship'
-		// 					value={prevCurrentFellowship}
-		// 					intent='primary'
-		// 				/>
-		// 			</FormGroup>
-		// 		</Col>
-		// 	</Row>
-		// );
-
-		// const renderFellowship = () => (
-		// 	<RadioGroup
-		// 		label='Are you currently enrolled in a Hand Fellowship Program?'
-		// 		onChange={this.handleChange}
-		// 		selectedValue={fellowshipProgram}
-		// 		name='fellowshipProgram'
-		// 		className='bp3-form-group bp3-form-fellowship'
-		// 	>
-		// 		<Radio
-		// 			label='Yes:'
-		// 			value='Yes'
-		// 			className='bp3-align-right bp3-large radio-label-container'
-		// 		/>
-		// 		<Radio
-		// 			label='No:'
-		// 			value='No'
-		// 			className='bp3-align-right bp3-large radio-label-container'
-		// 		/>
-		// 	</RadioGroup>
-		// );
-		// const renderSessionToAttend = () => (
-		// 	<>
-		// 		<Row>
-		// 			<Col xs={12}>
-		// 				<Text className='bp3-text'>
-		// 					Please select the session you would like to attend:
-		// 				</Text>
-		// 			</Col>
-		// 		</Row>
-		// 		<div className='reset-margin-container'>
-		// 			<Row>
-		// 				<Col xs={12}>
-		// 					<Checkbox
-		// 						large={true}
-		// 						checked={session}
-		// 						name='session'
-		// 						onChange={this.handleChange}
-		// 						labelElement={
-		// 							<span>
-		// 								<span className='brand-navy-blue text-bold'>
-		// 									Learn about a nonsurgical treatment option and review case
-		// 									studies with Dupuytren’s contracture expert,{' '}
-		// 									<nobr>Dr. Glenn Gaston</nobr>
-		// 								</span>
-		// 							</span>
-		// 						}
-		// 					/>
-		// 					<div style={{ paddingLeft: '30px' }}>
-		// 						<div>
-		// 							<span className='text-bold'>Date:</span>{' '}
-		// 							<span className='brand-grey'>Tuesday, October 19, 2021</span>
-		// 						</div>
-		// 						<div>
-		// 							<span className='text-bold'>Time:</span>{' '}
-		// 							<span className=' text-boldbrand-grey'>8:00 PM EST</span>
-		// 						</div>
-		// 					</div>
-		// 				</Col>
-		// 			</Row>
-		// 		</div>
-		// 	</>
-		// );
-
 		const renderUnsubscribe = () => {};
 		return (
 			<div className='form-container'>
@@ -446,9 +348,6 @@ class RegisterForm extends Component {
 				{renderQuestion4()}
 				{renderQuestion5()}
 				{renderQuestion6()}
-				{/* {renderPrevCurrentFellowShip()} */}
-				{/* {renderFellowship()}
-				{renderSessionToAttend()} */}
 				<Row>
 					<Col xs={12}>
 						<button
