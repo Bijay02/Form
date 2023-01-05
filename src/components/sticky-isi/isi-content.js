@@ -4,16 +4,6 @@ import AnchorLink from 'react-anchor-link-smooth-scroll';
 const ISIContent = (props) => (
 	<div className='isi-content'>
 		<div className='inner-container'>
-			{/* {!props.isiExpanded && (
-        <AnchorLink
-          href="#isi_jump"
-          offset="65"
-          className="isi-see-more hide-in-desktop"
-        >
-          <span className="link-see-more">See More</span>
-          <span className="arrow-see-more">▾</span>
-        </AnchorLink>
-      )} */}
 			<a name='ISI_ANCHOR' />
 			<p className='isi_head brand-orange'>INDICATION</p>
 			<p className='full_isi_text'>
@@ -64,6 +54,19 @@ const ISIContent = (props) => (
 					required
 				</li>
 				<li>
+					Cases of syncope and presyncope have been reported in the
+					post-marketing period in patients treated with XIAFLEX. In most cases
+					in patients with Dupuytren’s contracture, the injection procedure,
+					finger extension procedure, or pain following the procedures were
+					reported as potential triggers for the events, suggesting a vasovagal
+					mechanism. Most, but not all, cases occurred in the immediate
+					treatment period (injection or finger extension procedure) or within 1
+					to 2 days following the injection or finger extension procedure. If
+					presyncopal symptoms occur, patients should remain recumbent until
+					symptoms resolve. Syncope may be associated with bodily injuries,
+					including concussion, head abrasion, and other accidental injuries
+				</li>
+				<li>
 					In the controlled portions of the clinical trials in Dupuytren's
 					contracture, a greater proportion of XIAFLEX-treated patients (15%)
 					compared to placebo-treated patients (1%) had mild allergic reactions
@@ -92,11 +95,23 @@ const ISIContent = (props) => (
 					patients with coagulation disorders, including patients receiving
 					concomitant anticoagulants (except for low-dose aspirin)
 				</li>
+				<li>
+					In the XIAFLEX clinical trials for Dupuytren’s contracture, the most
+					common adverse reactions reported in ≥25% of patients treated with
+					XIAFLEX and at an incidence greater than placebo were edema peripheral
+					(eg, swelling of the injected hand), contusion, injection site
+					hemorrhage, injection site reaction, and pain in the injected
+					extremity
+				</li>
+				<li>
+					<u>Post-marketing experience</u> – Syncope and presyncope have been
+					reported in patients treated with XIAFLEX. Most, but not all, cases
+					occurred in the immediate treatment period or within 1 to 2 days
+					following injection. Bodily injuries associated with the syncopal
+					events have been reported
+				</li>
 			</ul>
-			<p className='strong full_isi_text'>
-				Please see the accompanying full Prescribing Information, including
-				Medication Guide.
-			</p>
+
 			<p className='strong full_isi_text'>
 				Click for full{' '}
 				<a
