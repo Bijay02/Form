@@ -258,7 +258,7 @@ class RegisterForm extends Component {
 			<Row>
 				<Col xs={12} md={8}>
 					<FormGroup
-						label='What clinical pain points around Dupuytren’s contracture have you experienced since you’ve entered practice?'
+						label='What clinical pain points around XIAFLEX have you experienced since you’ve entered practice?'
 						labelFor='text-question-3'
 						id='form-question-3'
 					>
@@ -279,7 +279,7 @@ class RegisterForm extends Component {
 			<Row>
 				<Col xs={12} md={8}>
 					<FormGroup
-						label='What operational pain points (product acquisition, billing, etc) have you experienced since you’ve entered practice?'
+						label='What operational pain points (product acquisition, billing, etc) regarding XIAFLEX have you experienced since you’ve entered practice?'
 						labelFor='text-question-4'
 						id='form-question-4'
 					>
