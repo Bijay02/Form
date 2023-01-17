@@ -14,6 +14,7 @@ const Footer = () => (
 						<a
 							href='http://www.endo.com'
 							target='_blank'
+							className="pt-20"
 							style={{ display: 'block' }}
 						>
 							<img src={imgEndoLogo} className='footer-logo' />

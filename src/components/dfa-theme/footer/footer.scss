@@ -6,6 +6,9 @@
   p {
     margin-bottom: 0;
   }
+  .pt-20 {
+    padding-top:20px;
+  }
   .txt-rx-only {
     @include font-size(15);
     font-weight: 700;
