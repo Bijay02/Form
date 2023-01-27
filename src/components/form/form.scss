@@ -45,7 +45,11 @@
     background: $brand-orange;
   }
 }
-
+.form-submitted {
+  color:green;
+  font-weight:bold;
+  font-size:16px;
+}
 .reset-margin-container {
   margin-left: -16px;
   margin-right: -16px;

@@ -37,6 +37,7 @@ class RegisterForm extends Component {
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.validateEmail = this.validateEmail.bind(this);
+		this.resetValues = this.resetValues.bind(this);
 	}
 
 	queryParams = {}; // Used for handling query parameters that are sent along with form data
@@ -116,8 +117,19 @@ class RegisterForm extends Component {
 			this.state.question6.length >= 1 &&
 			!this.state.isLoading;
 
+
+
 		return disabled;
 	};
+
+	resetValues = () => {
+		var e = document.getElementsByTagName("input");
+		for (var i = 0; i < e.length; i++) {
+			if (e[i].type == "text") {
+				e[i].value = "";
+			}
+		}
+	}
 
 	handleChange = async (event) => {
 		event.persist();
@@ -149,6 +161,7 @@ class RegisterForm extends Component {
 	handleSubmitForCaptcha = async () => {
 		await this.setState({ checkingReCaptchaForSubmit: true });
 		this.updateRecaptchaToken();
+		this.resetValues();
 	};
 
 	// will need to update this for the API - mjm1374 - 1/3/2023
@@ -177,6 +190,8 @@ class RegisterForm extends Component {
 			const res = await axios.post(endpoint, dataToSend);
 			SourceEmitter.emit(`FormSubmitted`, true);
 			await this.setState({ isLoading: false });
+
+
 		} catch (e) {
 			console.log(e);
 		}
@@ -341,34 +356,35 @@ class RegisterForm extends Component {
 
 		const renderUnsubscribe = () => {};
 		return (
-			<div className='form-container'>
-				{renderQuestion1()}
-				{renderQuestion2()}
-				{renderQuestion3()}
-				{renderQuestion4()}
-				{renderQuestion5()}
-				{renderQuestion6()}
-				<Row>
-					<Col xs={12}>
-						<button
-							type='button'
-							onClick={this.handleSubmitForCaptcha}
-							className={`btn-submit-registration ${
-								!this.handleButtonDisable() ? 'disabled' : ''
-							}`}
-							disabled={!this.handleButtonDisable()}
-						>
-							SUBMIT
-						</button>
-						<ReCaptcha
-							ref={(ref) => (this.recaptcha = ref)}
-							sitekey={RECAPTCHA_SITE_KEY}
-							verifyCallback={this.verifyCallback}
-						/>
-					</Col>
-				</Row>
-			</div>
-		);
+      <div className="form-container">
+        {renderQuestion1()}
+        {renderQuestion2()}
+        {renderQuestion3()}
+        {renderQuestion4()}
+        {renderQuestion5()}
+        {renderQuestion6()}
+        <Row>
+          <Col xs={12}>
+            <button
+              type="button"
+              onClick={this.handleSubmitForCaptcha}
+              className={`btn-submit-registration ${
+                !this.handleButtonDisable() ? "disabled" : ""
+              }`}
+              disabled={!this.handleButtonDisable()}
+            >
+              SUBMIT
+            </button>{" "}
+            {this.state.isLoading && <span className="form-submitted">Thank you.</span>}
+            <ReCaptcha
+              ref={(ref) => (this.recaptcha = ref)}
+              sitekey={RECAPTCHA_SITE_KEY}
+              verifyCallback={this.verifyCallback}
+            />
+          </Col>
+        </Row>
+      </div>
+    );
 	}
 }
 
