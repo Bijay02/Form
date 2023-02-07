@@ -195,20 +195,20 @@ class RegisterForm extends Component {
 		} catch (e) {
 			console.log(e);
 		}
-		axios
-		  .post(endpoint, dataToSend)
-		  .then((response) => {
-		    this.setState({
-		      email: "",
-		      xiaflexUnsub: false,
-		      endoUnsub: false,
-		      FormError: false,
-		    });
-		    SourceEmitter.emit(`FormSubmitted`, true);
-		  })
-		  .catch((error) => {
-		    console.log(error);
-		  });
+		// axios
+		//   .post(endpoint, dataToSend)
+		//   .then((response) => {
+		//     this.setState({
+		//       email: "",
+		//       xiaflexUnsub: false,
+		//       endoUnsub: false,
+		//       FormError: false,
+		//     });
+		//     SourceEmitter.emit(`FormSubmitted`, true);
+		//   })
+		//   .catch((error) => {
+		//     console.log(error);
+		//   });
 	};
 
 	render() {

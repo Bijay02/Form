@@ -1,6 +1,6 @@
 
 const axios = require('axios');
-const ENDO_FORM_API = '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY';
+const ENDO_FORM_API = '';
 
 exports.handler = async (event) => {
     const { SubscriberId, Q1Response, Q2Response, Q3Response, Q4Response, Q5Response, Q6Response, RecaptchaToken } = JSON.parse(event.body);
@@ -17,7 +17,7 @@ exports.handler = async (event) => {
     try {
         const response = await axios.post(ENDO_FORM_API, data, {
             headers: {
-                'AuthKey': 'here'
+                'AuthKey': '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY'
             }
         });
         return {
