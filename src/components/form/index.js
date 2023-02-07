@@ -18,6 +18,9 @@ const RECAPTCHA_SITE_KEY =
 	whichSite() === 'development'
 		? '6LcaEIIaAAAAAOvSgY5AQiG-jUu-hM0sFohwDzzl'
 		: '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY';
+
+const DATA_API_URL = '/api/fellows-survey';
+
 class RegisterForm extends Component {
 	constructor(props) {
 		super(props);
@@ -187,7 +190,7 @@ class RegisterForm extends Component {
 		//Submit form
 		try {
 			await this.setState({ isLoading: true });
-			const res = await axios.post(endpoint, dataToSend);
+			const res = await axios.post(DATA_API_URL, dataToSend);
 			SourceEmitter.emit(`FormSubmitted`, true);
 			await this.setState({ isLoading: false });
 
