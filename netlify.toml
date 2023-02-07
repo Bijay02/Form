@@ -8,3 +8,8 @@
   to = "/.netlify/functions/signup-service"
   status = 200
 
+[[redirects]]
+  from = "/api/fellows-survey"
+  to = "/.netlify/functions/fellows-survey"
+  status = 200
+

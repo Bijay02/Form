@@ -170,12 +170,12 @@ class RegisterForm extends Component {
 			// contactKey: this.state.email,
 			// EventDefinitionKey: "",
 			// data: {
-			question1: this.state.question1,
-			question2: this.state.question2,
-			question3: this.state.question3,
-			question4: this.state.question4,
-			question5: this.state.question5,
-			question6: this.state.question6,
+			Q1Response: this.state.question1,
+			Q2Response: this.state.question2,
+			Q3Response: this.state.question3,
+			Q4Response: this.state.question4,
+			Q5Response: this.state.question5,
+			Q6Response: this.state.question6,
 			// FellowshipName: this.state.prevCurrentFellowship,
 			// CurrentlyEnrolled: this.state.fellowshipProgram,
 			Event: 'HCP_20211019',
@@ -195,20 +195,20 @@ class RegisterForm extends Component {
 		} catch (e) {
 			console.log(e);
 		}
-		// axios
-		//   .post(endpoint, dataToSend)
-		//   .then((response) => {
-		//     this.setState({
-		//       email: "",
-		//       xiaflexUnsub: false,
-		//       endoUnsub: false,
-		//       FormError: false,
-		//     });
-		//     SourceEmitter.emit(`FormSubmitted`, true);
-		//   })
-		//   .catch((error) => {
-		//     console.log(error);
-		//   });
+		axios
+		  .post(endpoint, dataToSend)
+		  .then((response) => {
+		    this.setState({
+		      email: "",
+		      xiaflexUnsub: false,
+		      endoUnsub: false,
+		      FormError: false,
+		    });
+		    SourceEmitter.emit(`FormSubmitted`, true);
+		  })
+		  .catch((error) => {
+		    console.log(error);
+		  });
 	};
 
 	render() {
