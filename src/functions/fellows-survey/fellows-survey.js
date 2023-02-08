@@ -1,6 +1,7 @@
 
 const axios = require('axios');
 const ENDO_FORM_API = 'https://www.endoitservices.com/XdcFellowsSurveySvc/api/XdcFellowsSurvey';
+const ENDO_AUTH_KEY = '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY';
 
 exports.handler = async (event) => {
     console.log('received event');
@@ -14,12 +15,12 @@ exports.handler = async (event) => {
         Q4Response,
         Q5Response,
         Q6Response,
-        RecaptchaToken
+        "RecaptchaToken": "NO_TOKEN"
     };
     try {
         const response = await axios.post(ENDO_FORM_API, data, {
             headers: {
-                'AuthKey': '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY'
+                'AuthKey': ENDO_AUTH_KEY
             }
         });
         console.log(response.data)

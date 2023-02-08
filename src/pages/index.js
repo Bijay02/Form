@@ -71,14 +71,12 @@ class IndexPage extends Component {
 				{!formCompleted && renderRegister()}
 				<Row>
 					<Col xs={12}>
-						{formCompleted && <Thankyou />}
-						{!formCompleted && (
-							<RegisterForm
+						{/* {formCompleted && <Thankyou />} */}
+						<RegisterForm
 								email={email}
 								hcp={false}
 								formSpecific='nutrition direct patient'
 							/>
-						)}
 					</Col>
 				</Row>
 			</Layout>
