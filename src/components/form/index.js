@@ -68,10 +68,10 @@ class RegisterForm extends Component {
 			updatedQuery = { ...updatedQuery, jid: '' };
 		}
 		if (updatedQuery && updatedQuery.hasOwnProperty('SubscriberId')) {
-			updatedQuery = { ...updatedQuery, sid: updatedQuery['SubscriberId'] };
+			updatedQuery = { ...updatedQuery, SubscriberId: updatedQuery['SubscriberId'] };
 			delete updatedQuery['SubscriberId'];
 		} else {
-			updatedQuery = { ...updatedQuery, sid: '' };
+			updatedQuery = { ...updatedQuery, SubscriberId: '' };
 		}
 		if (updatedQuery && updatedQuery.hasOwnProperty('CampaignId')) {
 			updatedQuery = { ...updatedQuery, cid: updatedQuery['CampaignId'] };
