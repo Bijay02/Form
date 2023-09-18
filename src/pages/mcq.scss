@@ -1,0 +1,146 @@
+@import "../scss/configs";
+@import "../scss/xiaflex-theme.scss";
+
+.mcq-page {
+    .mcq-wrapper {
+        padding-top: 30px;
+
+        h4 {
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 31px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+
+            @media only screen and (min-width: 992px) {
+                margin-bottom: 45px;
+            }
+        }
+
+        .form {
+            &-group {
+                margin-bottom: 30px;
+
+                @media only screen and (min-width: 992px) {
+                    margin-bottom: 35px;
+                }
+
+                label {
+                    display: block;
+                    font-size: 23px;
+                    font-weight: 400;
+                    line-height: 27px;
+                    margin-bottom: 15px;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+
+                .radio {
+                    border: none;
+                    position: relative;
+                    margin-bottom: 12px;
+
+                    label {
+                        cursor: pointer;
+                        margin-bottom: 0;
+                        display: inline-block;
+
+                        input {
+                            height: 0;
+                            left: 0;
+                            overflow: hidden;
+                            opacity: 0;
+                            position: absolute;
+                            top: 0;
+                            visibility: hidden;
+                            width: 0;
+                            z-index: 0;
+
+                            &:checked {
+                                &+p {
+                                    .radio_span {
+                                        &:after {
+                                            border: 2px solid $brand-navy-blue;
+                                            opacity: 1;
+                                            visibility: visible;
+                                        }
+
+                                        &:before {
+                                            border: 2px solid $brand-blue;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                        p {
+                            font-size: 23px;
+                            line-height: 27px;
+                            font-weight: 400;
+                            margin: 0;
+                            padding: 0 0 0 42px;
+
+                            .radio_span {
+                                display: block;
+                                position: absolute;
+                                top: 12px;
+                                left: 13px;
+
+                                &:before,
+                                &:after {
+                                    border: 2px solid $brand-navy-blue;
+                                    border-radius: 50%;
+                                    content: "";
+                                    left: 50%;
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    background-color: white;
+                                }
+
+                                &:before {
+                                    height: 24px;
+                                    width: 24px;
+                                }
+
+                                &:after {
+                                    background-color: $brand-navy-blue;
+                                    height: 14px;
+                                    opacity: 0;
+
+                                    transition: 0.1s opacity linear, 0.1s visibility linear;
+
+                                    visibility: hidden;
+                                    width: 14px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-control {
+                width: 100%;
+                height: 50px;
+
+                @media only screen and (min-width: 992px) {
+                    height: 62px;
+                }
+            }
+
+
+        }
+
+        .btn-wrap {
+            .btn-submit-registration {
+                font-family: Arial, Helvetica, sans-serif;
+
+                @media only screen and (min-width: 992px) {
+                    font-size: 26px;
+                    width: 200px;
+
+                }
+            }
+        }
+    }
+}
