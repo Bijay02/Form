@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Xiaflex AAHS Registration and Thank You Landing Page",
+    title: "XIAFLEX AAHS Registration and Thank You Landing Page",
   },
   pathPrefix: `/speakerprogramsurvey2023`,
   plugins: [
