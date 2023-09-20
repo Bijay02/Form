@@ -168,7 +168,7 @@ const McqPage = () => {
 
 	useEffect(() => {
 		loadReCaptcha(RECAPTCHA_SITE_KEY, () => { });
-	})
+	},[])
 
 	const formattedNumber = (value) => {
 		let numOnly = value.replace(/\D/g, "");
@@ -209,15 +209,15 @@ const McqPage = () => {
 							<form onSubmit={handleFormSubmit}>
 								<div className="form-group">
 									<label htmlFor="number">Please provide your National Provider Identifier (NPI).</label>
-									<input minLength={10} maxLength={10} value={data.Q1} name='Q1' className='form-control' onChange={e => handleChange('Q1', formattedNumber(e.target.value))} />
+									<input maxLength={10} value={data.Q1} name='Q1' className='form-control' onChange={e => handleChange('Q1', formattedNumber(e.target.value))} />
 								</div>
-								{questions.map((item) => (
-									<div className="form-group">
+								{questions.map((item,index) => (
+									<div className="form-group" key={index}>
 										<div onChange={e => handleChange(item.name, e.target.value)} value='Likely'>
 											<label>{item.label}</label>
-											{item.options.map((opt) => (
-												<fieldset className="radio">
-													<label for={`${item.id}_${opt.id}`}>
+											{item.options.map((opt,i) => (
+												<fieldset className="radio" key={'radio'+i}>
+													<label htmlFor={`${item.id}_${opt.id}`}>
 														<input
 															type="radio"
 															checked={data[item.name] === opt.label}
