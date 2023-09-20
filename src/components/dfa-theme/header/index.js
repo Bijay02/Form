@@ -10,9 +10,9 @@ const Header = () => (
       <Grid fluid>
         <Row center="xs">
           <Col xs={12} sm={3} md={3}>
-            <Link to="/">
+            <a  target="_blank" href="https://dupuytrens-contracture.xiaflex.com/hcp/">
               <img src={logo} alt="Logo" className="logo" />
-            </Link>
+            </a>
           </Col>
           {/* <Col xs={12} sm={9} md={9}>
           <Row end="sm">

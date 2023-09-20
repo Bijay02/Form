@@ -31,9 +31,9 @@ const Footer = () => (
 							affiliates. All rights reserved.&nbsp;&nbsp;
 							<br className='show-in-mobile' />
 							<br />
-							<strong>XD-06820/January 2023&nbsp;&nbsp;</strong>
+							<strong>XD-06988/September 2023&nbsp;&nbsp;</strong>
 							<br className='show-in-mobile' />
-							www.xiaflex.com&nbsp;&nbsp;1-800-462-ENDO (3636)
+							www.XIAFLEX.com&nbsp;&nbsp;1-800-462-ENDO (3636)
 						</p>
 					</Col>
 				</Row>

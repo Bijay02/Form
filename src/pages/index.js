@@ -167,90 +167,94 @@ const McqPage = () => {
 	})
 
 	useEffect(() => {
-		loadReCaptcha(RECAPTCHA_SITE_KEY, () => { });
-	},[])
-
-	const formattedNumber = (value) => {
-		let numOnly = value.replace(/\D/g, "");
-		return numOnly;
-	};
-
-	const btnDisabled = () => {
-		return (Object.values(data).some(v => v === '') || formSubmitted || data.Q1.length!==10)
-	}
-
-	const handleChange = (key, value) => {
-		data[key] = value
-		setData({ ...data })
-	}
-
-	const handleFormSubmit = async (e) => {
-		recaptchaRef?.current && recaptchaRef.current.execute();
-		e.preventDefault()
-		setSubmitting(true);
-		await axios({
-			url: DATA_API_URL,
-			method: "POST",
-			data: JSON.stringify(data),
-		}).then(() => {
-			setFormSubmitted(true)
-			setData({Q1:''})
-		}).catch((error) => console.log(error.response));
-		setSubmitting(false);
-	}
-
-	return (
-		<Layout>
-			<section className='mcq-page'>
-				<Row>
-					<Col xs={9}>
-						<div className="mcq-wrapper">
-							<h4>Please complete this optional survey</h4>
-							<form onSubmit={handleFormSubmit}>
-								<div className="form-group">
-									<label htmlFor="number">Please provide your National Provider Identifier (NPI).</label>
-									<input maxLength={10} value={data.Q1} name='Q1' className='form-control' onChange={e => handleChange('Q1', formattedNumber(e.target.value))} />
-								</div>
-								{questions.map((item,index) => (
-									<div className="form-group" key={index}>
-										<div onChange={e => handleChange(item.name, e.target.value)} value='Likely'>
-											<label>{item.label}</label>
-											{item.options.map((opt,i) => (
-												<fieldset className="radio" key={'radio'+i}>
-													<label htmlFor={`${item.id}_${opt.id}`}>
-														<input
-															type="radio"
-															checked={data[item.name] === opt.label}
-															id={`${item.id}_${opt.id}`}
-															value={opt.label}
-															name={item.id}
-														/>
-														<p className="noselect">
-															<span className="radio_span"></span>{opt.label}
-														</p>
-													</label>
-												</fieldset>
-											))}
-										</div>
-									</div>
-								))}
-
-								<ReCaptcha
-									sitekey={RECAPTCHA_SITE_KEY}
-									ref={recaptchaRef}
-									verifyCallback={token => handleChange('RecaptchaToken', token)}
-								/>
-								<div className="btn-wrap">
-									<button type="submit" className={`btn-submit-registration ${btnDisabled() ? 'disabled' : ''}`}>SUBMIT</button>
-									{formSubmitted ? <span className="form-submitted">Thank you.</span> : null}
-								</div>
-							</form>
-						</div>
-					</Col>
-				</Row>
-			</section>
-		</Layout>
-	);
-}
-
-export default McqPage;
+        loadReCaptcha(RECAPTCHA_SITE_KEY, () => { });
+      }, []);
+    
+      const formattedNumber = (value) => {
+        return value.replace(/\D/g, "");
+      };
+    
+      const btnDisabled = () => {
+        return (Object.values(data).some(v => v === '') || formSubmitted || data.Q1.length !== 10);
+      };
+    
+      const handleChange = (key, value) => {
+        data[key] = value;
+        setData({ ...data });
+      };
+    
+      const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        recaptchaRef?.current && recaptchaRef.current.execute();
+        setSubmitting(true);
+        await axios({
+          url: DATA_API_URL,
+          method: "POST",
+          data: JSON.stringify(data),
+        }).then(() => {
+          setFormSubmitted(true);
+          setData({ Q1: '' });
+        }).catch((error) => console.log(error.response));
+        setSubmitting(false);
+      };
+    
+      return (
+        <Layout>
+          <section className='mcq-page'>
+            <Row>
+              <Col xs={9}>
+                <div className="mcq-wrapper">
+                  <h4>Please complete this optional survey</h4>
+                  <form onSubmit={handleFormSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="number">Please provide your National Provider Identifier (NPI).</label>
+                      <input maxLength={10} value={data.Q1} name='Q1' className='form-control' onChange={e => handleChange('Q1', formattedNumber(e.target.value))} />
+                    </div>
+                    {questions.map((item, index) => (
+                      <div className="form-group" key={index}>
+                        <div onChange={e => handleChange(item.name, e.target.value)}>
+                          <label>{item.label}</label>
+                          {item.options.map((opt, i) => (
+                            <fieldset className="radio" key={'radio' + i}>
+                              <label htmlFor={`${item.id}_${opt.id}`}>
+                                <input
+                                  type="radio"
+                                  checked={data[item.name] === opt.label}
+                                  id={`${item.id}_${opt.id}`}
+                                  value={opt.label}
+                                  name={item.id}
+                                />
+                                <p className="noselect">
+                                  <span className="radio_span"></span>{opt.label}
+                                </p>
+                              </label>
+                            </fieldset>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    <ReCaptcha
+                      sitekey={RECAPTCHA_SITE_KEY}
+                      ref={recaptchaRef}
+                      verifyCallback={token => handleChange('RecaptchaToken', token)}
+                    />
+                    <div className="btn-wrap">
+                    <button 
+  type="submit" 
+  className={`btn-submit-registration${btnDisabled() ? ' disabled' : ''}`} 
+  disabled={btnDisabled()}
+>
+  SUBMIT
+</button>
+        {formSubmitted ? <span className="form-submitted">Thank you.</span> : null}
+                    </div>
+                  </form>
+                </div>
+              </Col>
+            </Row>
+          </section>
+        </Layout>
+      );
+    };
+    
+    export default McqPage;
