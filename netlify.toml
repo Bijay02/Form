@@ -1,5 +1,5 @@
 [build]
-  command = "npm run ntlbuild"
+  command = "npm run buildendo"
   functions = "src/functions"
   publish = "public"
 
