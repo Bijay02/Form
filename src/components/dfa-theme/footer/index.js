@@ -11,14 +11,7 @@ const Footer = () => (
 			<Grid fluid>
 				<Row className='endo-footer-logo-block' center='xs'>
 					<Col xs={12} md={3}>
-						<a
-							href='http://www.endo.com'
-							target='_blank'
-							className="pt-20"
-							style={{ display: 'block' }}
-						>
 							<img src={imgEndoLogo} className='footer-logo' />
-						</a>
 					</Col>
 					<Col xs={12} md={8} className='rx-block endo-footer-other-content'>
 						<p className='txt-rx-only'>&nbsp;</p>
