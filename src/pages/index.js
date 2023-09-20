@@ -1,87 +1,256 @@
-import React, { Component } from 'react';
-import { Row, Col } from 'react-flexbox-grid';
+import React, { useState, useRef } from 'react';
 import Layout from '../components/dfa-theme/layout';
-import UsubForm from '../components/form';
-import RegisterForm from '../components/form';
-import SourceEmitter from '../lib/emitter';
-import '../components/form/form.scss';
-import Thankyou from '../components/thank-you';
+import { Col, Row } from 'react-flexbox-grid';
+import "./index.scss";
+import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3';
+import { useEffect } from 'react';
+import axios from 'axios';
 
-const metaTags = {
-	description:
-		'Xiaflex: Training and Certification with expert, Dr. Prosper Benhaim',
-	keywords: 'Training and Certification with expert, Dr. Prosper Benhaim',
-};
+const DATA_API_URL = '/api/insert-survey';
+const RECAPTCHA_SITE_KEY = '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY'
 
-let Subscription_Form_Submit = null;
+const questions = [
+	{
+		label: "How likely are you to use XIAFLEX to treat an appropriate patient with a 60° MP joint contracture?",
+		name: "Q2",
+		id: 'q2',
+		options: [
+			{
+				label: 'Very likely',
+				id: 'very-likely',
+			},
+			{
+				label: 'Likely',
+				id: 'likely',
+			},
+			{
+				label: 'Somewhat likely',
+				id: 'somewhat-likely',
+			},
+			{
+				label: 'Not likely',
+				id: 'not-likely',
+			},
+		]
+	},
+	{
+		label: "How likely are you to use XIAFLEX to treat an appropriate patient with a 40° PIP joint contracture of the fifth digit?",
+		name: "Q3",
+		id: 'q3',
+		options: [
+			{
+				label: 'Very likely',
+				id: 'very-likely',
+			},
+			{
+				label: 'Likely',
+				id: 'likely',
+			},
+			{
+				label: 'Somewhat likely',
+				id: 'somewhat-likely',
+			},
+			{
+				label: 'Not likely',
+				id: 'not-likely',
+			},
+		]
+	},
+	{
+		label: "How likely are you to use XIAFLEX to treat an appropriate patient with 2 contractures on the same finger?",
+		name: "Q4",
+		id: 'q4',
+		options: [
+			{
+				label: 'Very likely',
+				id: 'very-likely',
+			},
+			{
+				label: 'Likely',
+				id: 'likely',
+			},
+			{
+				label: 'Somewhat likely',
+				id: 'somewhat-likely',
+			},
+			{
+				label: 'Not likely',
+				id: 'not-likely',
+			},
+		]
+	},
+	{
+		label: "How concerned are you about possible skin tears during the XIAFLEX finger extension procedure?",
+		name: "Q5",
+		id: 'q5',
+		options: [
+			{
+				label: 'Very concerned—I do not use XIAFLEX for most appropriate patients, specifically to avoid skin tears',
+				id: 'very-concerned',
+			},
+			{
+				label: 'Somewhat concerned—I do not use XIAFLEX for certain appropriate patients, specifically to avoid skin tears',
+				id: 'somewhat-concerned',
+			},
+			{
+				label: 'Minimally concerned—Skin tears should be managed with standard wound care',
+				id: 'minimally-concerned',
+			},
+			{
+				label: 'Not concerned',
+				id: 'not-concerned',
+			},
+		]
+	},
+	{
+		label: "How concerned are you about recurrence after use of XIAFLEX?",
+		name: "Q6",
+		id: 'q6',
+		options: [
+			{
+				label: 'Very concerned—I do not use XIAFLEX for most appropriate patients, specifically to avoid recurrence',
+				id: 'very-concerned',
+			},
+			{
+				label: 'Somewhat concerned—I do not use XIAFLEX for certain appropriate patients, specifically to avoid recurrence',
+				id: 'somewhat-concerned',
+			},
+			{
+				label: 'Minimally concerned—Recurrence can appear regardless of treatment option',
+				id: 'minimally-concerned',
+			},
+			{
+				label: 'Not concerned',
+				id: 'not-concerned',
+			},
+		]
+	},
+	{
+		label: "How confident are you in your practice’s ability to acquire XIAFLEX for appropriate patients with Dupuytren’s contracture?",
+		name: "Q7",
+		id: 'q7',
+		options: [
+			{
+				label: 'Very likely',
+				id: 'very-likely',
+			},
+			{
+				label: 'Likely',
+				id: 'likely',
+			},
+			{
+				label: 'Somewhat likely',
+				id: 'somewhat-likely',
+			},
+			{
+				label: 'Not likely',
+				id: 'not-likely',
+			},
+		]
+	}
+]
 
-class IndexPage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			formCompleted: false,
-		};
+
+const McqPage = () => {
+	const [submitting, setSubmitting] = useState(false)
+	const [formSubmitted, setFormSubmitted] = useState(false);
+	const recaptchaRef = useRef();
+	const [data, setData] = useState({
+		Q1: '',
+		Q2: '',
+		Q3: '',
+		Q4: '',
+		Q5: '',
+		Q6: '',
+		Q7: '',
+		RecaptchaToken: ''
+	})
+
+	useEffect(() => {
+		loadReCaptcha(RECAPTCHA_SITE_KEY, () => { });
+	})
+
+	const formattedNumber = (value) => {
+		let numOnly = value.replace(/\D/g, "");
+		return numOnly;
+	};
+
+	const btnDisabled = () => {
+		return (Object.values(data).some(v => v === '') || formSubmitted || data.Q1.length!==10)
 	}
 
-	componentDidMount() {
-		window && window.scrollTo(0, 0);
-		this.setResponseParams();
-		Subscription_Form_Submit = SourceEmitter.addListener(
-			'FormSubmitted',
-			(data) => {
-				console.log('data', data);
-				if (data) {
-					this.setState({ formCompleted: true });
-				}
-			}
-		);
+	const handleChange = (key, value) => {
+		data[key] = value
+		setData({ ...data })
 	}
 
-	componentWillUnmount() {
-		Subscription_Form_Submit && Subscription_Form_Submit.remove();
+	const handleFormSubmit = async (e) => {
+		recaptchaRef?.current && recaptchaRef.current.execute();
+		e.preventDefault()
+		setSubmitting(true);
+		await axios({
+			url: DATA_API_URL,
+			method: "POST",
+			data: JSON.stringify(data),
+		}).then(() => {
+			setFormSubmitted(true)
+			setData({Q1:''})
+		}).catch((error) => console.log(error.response));
+		setSubmitting(false);
 	}
 
-	setResponseParams() {
-		const responseObj = window.location.hash
-			.substr(1)
-			.split('&')
-			.map((el) => el.split('='))
-			.reduce((pre, cur) => {
-				pre[cur[0]] = cur[1];
-				return pre;
-			}, {});
-		this.setState({
-			email: responseObj.em,
-		});
-	}
-
-	render() {
-		const { email, formCompleted } = this.state;
-		const renderRegister = () => (
-			<>
+	return (
+		<Layout>
+			<section className='mcq-page'>
 				<Row>
-					<Col xs={12}></Col>
-				</Row>
-			</>
-		);
+					<Col xs={9}>
+						<div className="mcq-wrapper">
+							<h4>Please complete this optional survey</h4>
+							<form onSubmit={handleFormSubmit}>
+								<div className="form-group">
+									<label htmlFor="number">Please provide your National Provider Identifier (NPI).</label>
+									<input minLength={10} maxLength={10} value={data.Q1} name='Q1' className='form-control' onChange={e => handleChange('Q1', formattedNumber(e.target.value))} />
+								</div>
+								{questions.map((item) => (
+									<div className="form-group">
+										<div onChange={e => handleChange(item.name, e.target.value)} value='Likely'>
+											<label>{item.label}</label>
+											{item.options.map((opt) => (
+												<fieldset className="radio">
+													<label for={`${item.id}_${opt.id}`}>
+														<input
+															type="radio"
+															checked={data[item.name] === opt.label}
+															id={`${item.id}_${opt.id}`}
+															value={opt.label}
+															name={item.id}
+														/>
+														<p className="noselect">
+															<span className="radio_span"></span>{opt.label}
+														</p>
+													</label>
+												</fieldset>
+											))}
+										</div>
+									</div>
+								))}
 
-		return (
-			<Layout meta={metaTags}>
-				{!formCompleted && renderRegister()}
-				<Row>
-					<Col xs={12}>
-						{/* {formCompleted && <Thankyou />} */}
-						<RegisterForm
-								email={email}
-								hcp={false}
-								formSpecific='nutrition direct patient'
-							/>
+								<ReCaptcha
+									sitekey={RECAPTCHA_SITE_KEY}
+									ref={recaptchaRef}
+									verifyCallback={token => handleChange('RecaptchaToken', token)}
+								/>
+								<div className="btn-wrap">
+									<button type="submit" className={`btn-submit-registration ${btnDisabled() ? 'disabled' : ''}`}>SUBMIT</button>
+									{formSubmitted ? <span className="form-submitted">Thank you.</span> : null}
+								</div>
+							</form>
+						</div>
 					</Col>
 				</Row>
-			</Layout>
-		);
-	}
+			</section>
+		</Layout>
+	);
 }
 
-export default IndexPage;
+export default McqPage;
