@@ -6,7 +6,8 @@ import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3';
 import { useEffect } from 'react';
 import axios from 'axios';
 
-const DATA_API_URL = 'https://www.endoitservices.com/XdcSpeakerProgramSurveySvc/api/InsertSurvey';
+// const DATA_API_URL = 'https://www.endoitservices.com/XdcSpeakerProgramSurveySvc/api/InsertSurvey';
+const DATA_API_URL = 'https://master--neon-starburst-b768d6.netlify.app/.netlify/functions/insert-survey'
 const RECAPTCHA_SITE_KEY = '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY'
 
 const questions = [
