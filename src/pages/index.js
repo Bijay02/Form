@@ -6,7 +6,7 @@ import { ReCaptcha, loadReCaptcha } from 'react-recaptcha-v3';
 import { useEffect } from 'react';
 import axios from 'axios';
 
-const DATA_API_URL = '/api/insert-survey';
+const DATA_API_URL = 'https://www.endoitservices.com/XdcSpeakerProgramSurveySvc/api/InsertSurvey';
 const RECAPTCHA_SITE_KEY = '6LeXeboZAAAAAAJ7opsQpnfBVkXwbGTrPWJoJsjY'
 
 const questions = [
@@ -131,20 +131,20 @@ const questions = [
 		id: 'q7',
 		options: [
 			{
-				label: 'Very likely',
-				id: 'very-likely',
+				label: 'Very confident',
+				id: 'very-confident',
 			},
 			{
-				label: 'Likely',
-				id: 'likely',
+				label: 'Confident',
+				id: 'confident',
 			},
 			{
-				label: 'Somewhat likely',
-				id: 'somewhat-likely',
+				label: 'Somewhat confident',
+				id: 'somewhat-confident',
 			},
 			{
-				label: 'Not likely',
-				id: 'not-likely',
+				label: 'Not confident',
+				id: 'confident',
 			},
 		]
 	}
