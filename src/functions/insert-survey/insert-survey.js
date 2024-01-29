@@ -4,10 +4,9 @@ const ENDO_FORM_API = 'https://www.endoitservices.com/XdcSpeakerProgramSurveySvc
 const ENDO_AUTH_KEY = '23bf1a5d-ce58-4b35-a910-c88f96b1f9c9';
 
 exports.handler = async (event) => {
-    console.log('received event');
 
-    const { Q1, Q2, Q3, Q4, Q5, Q6, Q7, RecaptchaToken } = JSON.parse(event.body);
-    
+    const { Q1, Q2, Q3, Q4, Q5, Q6, Q7, source, RecaptchaToken } = JSON.parse(event.body);
+
     const data = {
         Q1,
         Q2,
@@ -16,6 +15,7 @@ exports.handler = async (event) => {
         Q5,
         Q6,
         Q7,
+        source: source ?? '',
         RecaptchaToken
     };
     try {
@@ -24,7 +24,7 @@ exports.handler = async (event) => {
                 'AuthKey': ENDO_AUTH_KEY
             }
         });
- 
+
         return {
             statusCode: 200,
             body: JSON.stringify(response.data),
