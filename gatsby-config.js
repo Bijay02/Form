@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "XIAFLEX AAHS Registration and Thank You Landing Page",
   },
-  pathPrefix: `/speakerprogramsurvey2023`,
+  pathPrefix: `/speakerprogramsurvey`,
   plugins: [
     "gatsby-plugin-react-helmet",
     {

@@ -44,7 +44,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "task": "mkdir bkp_public && cd public && mv * ../bkp_public/ && mkdir -p speakerprogramsurvey2023/ && cd ../bkp_public/ && mv * ../public/speakerprogramsurvey2023/ && cd ../public/ && rm -rf ../bkp_public/",
+    "task": "mkdir bkp_public && cd public && mv * ../bkp_public/ && mkdir -p speakerprogramsurvey/ && cd ../bkp_public/ && mv * ../public/speakerprogramsurvey/ && cd ../public/ && rm -rf ../bkp_public/",
     "build": "gatsby build --prefix-paths && npm run task",
     "ntlbuild": "gatsby build",
     "buildendo": "gatsby build --prefix-paths && npm run task",
