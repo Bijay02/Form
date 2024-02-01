@@ -145,7 +145,7 @@ const questions = [
 			},
 			{
 				label: 'Not confident',
-				id: 'confident',
+				id: 'not-confident',
 			},
 		]
 	}
