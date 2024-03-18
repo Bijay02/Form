@@ -20,11 +20,10 @@ const Footer = () => (
 							<br className='show-in-mobile' />
 							Endo International plc or one of its affiliates.
 							<br />
-							&copy; {copyrightYear()} Endo International plc or one of its
-							affiliates. All rights reserved.&nbsp;&nbsp;
+							&copy; {copyrightYear()} Endo, Inc. or one of its affiliates. All rights reserved.&nbsp;&nbsp;
 							<br className='show-in-mobile' />
 							<br />
-							<strong>XD-06988/September 2023&nbsp;&nbsp;</strong>
+							<strong>XD-07109/March 2024&nbsp;&nbsp;</strong>
 							<br className='show-in-mobile' />
 							www.XIAFLEX.com&nbsp;&nbsp;1-800-462-ENDO (3636)
 						</p>
