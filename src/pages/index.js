@@ -259,6 +259,14 @@ const McqPage = ({ location }) => {
 					</Col>
 				</Row>
 			</section>
+			<div style={{ textAlign: "right", fontSize: "x-small" }}>
+			<a
+			  href="http://www.formstack.com?utm_source=jsembed&utm_medium=product&utm_campaign=product+branding&fa=h,5657687"
+			  title="Powered by Formstack"
+			>
+			  Powered by Formstack
+			</a>
+		  </div>
 		</Layout>
 	);
 };
