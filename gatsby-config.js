@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "XIAFLEX AAHS Registration and Thank You Landing Page",
+    title: "HCP Enrollment Form Landing Page",
   },
-  pathPrefix: `/speakerprogramsurvey`,
+  pathPrefix: `/hcpenrollment`,
   plugins: [
     "gatsby-plugin-react-helmet",
     {
