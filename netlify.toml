@@ -1,7 +1,7 @@
 [build]
   command = "npm run buildendo"
   functions = "src/functions"
-  publish = "public"
+  publish = "public/hcpenrollment"
 
 [[redirects]]
   from = "/api/signup-service"
@@ -17,4 +17,3 @@
   from = "/api/insert-survey"
   to = "/.netlify/functions/insert-survey"
   status = 200
-
