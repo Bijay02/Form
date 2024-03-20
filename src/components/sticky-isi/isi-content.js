@@ -131,12 +131,6 @@ const ISIContent = (props) => (
 				</a>
 				.
 			</p>
-            <section className="reference">
-                    <p className="full_isi_text"><span className="strong">References:</span><br/>
-                   XIAFLEX<sup>&reg;</sup> [package insert]. Malvern, PA: Endo Pharmaceuticals Inc.</p>
-                   <p className="full_isi_text">
-                    Feldman G, Rozen N, Rubin G. Dupuytren’s contracture: current treatment methods. <em>IMAJ</em>. 2017;19.</p>
-            </section>
 		</div>
 	</div>
 );
