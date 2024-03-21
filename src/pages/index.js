@@ -4,7 +4,7 @@ import "./index.scss";
 
 const McqPage = () => {
   const [formFound, setFormFound] = useState(false);
-
+  console.log('deploy test')
   useEffect(() => {
     let interval;
     console.log('rendering')
@@ -12,7 +12,7 @@ const McqPage = () => {
       interval = setInterval(() => {
         const formStackForm = document.querySelector("#fsform-container");
         const formContainer = document.querySelector("#form-container");
-        
+
         if (formStackForm && formContainer) {
           setFormFound(true);
           formContainer.appendChild(formStackForm);
@@ -28,7 +28,7 @@ const McqPage = () => {
 
   return (
     <Layout>
-      <section id='form-container'></section>
+      <section id='form-container'>test</section>
     </Layout>
   );
 };
