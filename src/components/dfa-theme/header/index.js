@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import SimpleNav from "../../simple-nav";
-import logo from "../../../images/xiaflex-logo.png";
+import logo from "./xiaflex-logo.png";
 
 const Header = () => (
   <div className="outer-container">
