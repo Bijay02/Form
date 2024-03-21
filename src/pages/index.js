@@ -4,17 +4,25 @@ import "./index.scss";
 // import { Col, Row } from "react-flexbox-grid";
 
 const McqPage = () => {
-  console.log('deploy test');
+  useEffect(() => {
+    const formStackForm = document.querySelector("#fsform-container");
+    const formContainer = document.querySelector("#form-container");
+
+    if (formStackForm && formContainer) {
+      formContainer.appendChild(formStackForm);
+    }
+
+  }, [])
   return (
     <Layout>
       <section id="form-container">
-        <div className="form-block">
+        {/* <div className="form-block">
           <iframe
             src="https://deerfieldagency.formstack.com/forms/xdc_hcp_enrollment_form"
             title="Formstack Form"
             width="100%"
           ></iframe>
-        </div>
+        </div> */}
       </section>
     </Layout>
   );
