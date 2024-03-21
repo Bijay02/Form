@@ -4,15 +4,29 @@ import "./index.scss";
 // import { Col, Row } from "react-flexbox-grid";
 
 const McqPage = () => {
+  const [formFound, setFormFound] = useState(false);
+  console.log('deploy test')
   useEffect(() => {
-    const formStackForm = document.querySelector("#fsform-container");
-    const formContainer = document.querySelector("#form-container");
+    let interval;
+    console.log('rendering')
+    if (!formFound) {
+      interval = setInterval(() => {
+        const formStackForm = document.querySelector("#fsform-container");
+        const formContainer = document.querySelector("#form-container");
 
-    if (formStackForm && formContainer) {
-      formContainer.appendChild(formStackForm);
+        if (formStackForm && formContainer) {
+          setFormFound(true);
+          formContainer.appendChild(formStackForm);
+          clearInterval(interval);
+        }
+      }, 200);
     }
 
-  }, [])
+    return () => {
+      clearInterval(interval);
+    };
+  }, [formFound]);
+
   return (
     <Layout>
       <section id="form-container">
