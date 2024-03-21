@@ -4,7 +4,7 @@ import "./index.scss";
 // import { Col, Row } from "react-flexbox-grid";
 
 const McqPage = () => {
-
+  console.log('deploy test');
   return (
     <Layout>
       <section id="form-container">
