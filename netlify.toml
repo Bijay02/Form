@@ -1,7 +1,7 @@
 [build]
-  command = "npm run buildendo"
+  command = "npm run ntlbuild"
   functions = "src/functions"
-  publish = "public/hcpenrollment"
+  publish = "public"
 
 [[redirects]]
   from = "/api/signup-service"
