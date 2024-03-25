@@ -48,7 +48,7 @@
     "build": "gatsby build --prefix-paths && npm run task",
     "ntlbuild": "gatsby build",
     "buildendo": "gatsby build --prefix-paths && npm run task",
-    "develop": "NODE_ENV=integration gatsby develop",
+    "develop": "set NODE_ENV=integration&& gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve --prefix-paths -o",
     "build:serve": "npm run build && npm run serve",
